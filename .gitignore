@@ -18,6 +18,8 @@
 !/storage/.keep
 
 /node_modules
+bundle.js
+bundle.js.map
 /yarn-error.log
 
 /public/assets
@@ -25,7 +27,3 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-
-node_modules/
-bundle.js
-bundle.js.map

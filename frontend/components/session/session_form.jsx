@@ -4,11 +4,16 @@ import { Link } from 'react-router-dom';
 export default class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      user: this.props.user,
-      errors: this.props.errors
-    };
+    this.state =
+      {
+        user: this.props.user,
+        errors: this.props.errors
+      };
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
   }
 
   handleSubmit(e) {
@@ -18,20 +23,49 @@ export default class SessionForm extends React.Component {
 
   update(field) {
     return (e) => {
-      this.setState({ [field]: e.currentTarget.value });
+      this.setState(
+        { 
+          user: Object.assign({}, this.state.user, { [field]: e.currentTarget.value })
+        }
+      );
     };
   }
 
-  // errorGenerator(formType) {
-  //   if (formType === 'Login') {
-  //     this.setState({})
-  //   } else {
+  inputGenerator(field) {
+    const { errors } = this.props;
 
-  //   }
-  // }
+    if (errors[field]) {
+      return(
+        <>
+          <div className='session-input-header-errors'>
+            <span>{field.toUpperCase()}</span>
+            <span className='session-errors'>- &nbsp;{errors[field]}</span>
+          </div>
+          <input
+            className='session-input-errors'
+            type="text"
+            value={this.state.user[field]}
+            onChange={this.update(field)} />
+        </>
+      );
+    } else {
+      return (
+        <>
+          <div>
+            <span>{field.toUpperCase()}</span>
+          </div>
+          <input
+            className='session-input'
+            type="text"
+            value={this.state.user[field]}
+            onChange={this.update(field)} />
+        </>
+      );
+    }
+  }
 
   render() {
-    const { formType, errors } = this.props;
+    const { formType } = this.props;
 
     const welcomeText = formType === 'Login' ?
       <div className='session-welcome'>
@@ -42,13 +76,13 @@ export default class SessionForm extends React.Component {
         <h1>Create an account</h1>
       </div>
 
+    const emailInput = this.inputGenerator('email');
+    const userInput = this.inputGenerator('username');
+    const passwordInput = this.inputGenerator('password');
+
     const userField = formType === 'Login' ? '' :    
-      <label>USERNAME {errors.username}
-        <input
-          className='session-input'
-          type="text"
-          value={this.state.user.username}
-          onChange={this.update('username')}/>
+      <label>
+        {userInput}
       </label>
 
     const reverseLink = formType === 'Register' ?
@@ -65,22 +99,14 @@ export default class SessionForm extends React.Component {
         {welcomeText}
 
         <form className='session-form' onSubmit={this.handleSubmit}>
-          <label>EMAIL {errors.email}
-            <input
-              className='session-input'
-              type="email"
-              value={this.state.user.email}
-              onChange={this.update('email')}/>
+          <label>
+            {emailInput}
           </label>
 
           {userField}
 
-          <label>PASSWORD {errors.password}
-            <input
-              className='session-input'
-              type="password"
-              value={this.state.user.password}
-              onChange={this.update('password')}/>
+          <label>
+            {passwordInput}
           </label>
 
           <label>

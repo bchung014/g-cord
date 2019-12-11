@@ -37,6 +37,16 @@
   font-size: 12px;
 }
 
+.session-input-header-errors {
+  display: flex;
+  color: #F04747;
+}
+
+.session-errors {
+  padding-left: 5px;
+  font-style: italic;
+}
+
 .session-form label > input {
   align-self: stretch;
   border-radius: 3px;
@@ -54,6 +64,16 @@
 .session-input:focus {
   outline: none;
   border: 1px solid #7289DA;
+}
+
+.session-input-errors {
+  padding: 10px;
+  background: #313339;
+  border: 1px solid red;
+}
+
+.session-input-errors:focus {
+  outline: none;
 }
 
 .session-submit {

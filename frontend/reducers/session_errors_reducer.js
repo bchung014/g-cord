@@ -1,13 +1,24 @@
 import { RECEIVE_CURRENT_USER, RECEIVE_ERRORS } from '../actions/session_actions';
 
-const sessionErrorsReducer = (state = [], action) => {
+const sessionErrorsReducer = (state = {}, action) => {
   Object.freeze(state);
 
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      return [];
+      return {};
     case RECEIVE_ERRORS:
-      return action.errors;
+      let allErrors = {};
+      action.errors.forEach((error) => {
+        if (error.includes('Email') || error.includes('credentials')) {
+          Object.assign(allErrors, { email: error });
+        } else if (error.includes('Username')) {
+          Object.assign(allErrors, { username: error });
+        } else if (error.includes('Password')) {
+          Object.assign(allErrors, { password: error });
+        }
+      });
+      return allErrors;
+      
     default:
       return state;
   }

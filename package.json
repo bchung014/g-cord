@@ -1,5 +1,5 @@
 {
-  "name": "dischord",
+  "name": "g-cord",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.7.5",
@@ -30,15 +30,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bchung014/dischord.git"
+    "url": "git+https://github.com/bchung014/g-cord.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bchung014/dischord/issues"
+    "url": "https://github.com/bchung014/g-cord/issues"
   },
-  "homepage": "https://github.com/bchung014/dischord#readme",
+  "homepage": "https://github.com/bchung014/g-cord#readme",
   "engines": {
     "node": "10.13.0",
     "npm": "6.4.1"

@@ -33,9 +33,6 @@ export default class SessionForm extends React.Component {
   render() {
     const { formType, errors } = this.props;
 
-    // const currErrors = this.errorGenerator(formType);
-    // console.log(currErrors);
-
     const welcomeText = formType === 'Login' ?
       <div className='session-welcome'>
         <h1>Welcome back!</h1>

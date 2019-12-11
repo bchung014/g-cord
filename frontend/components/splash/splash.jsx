@@ -2,7 +2,15 @@ import React from 'react';
 import SplashNavbar from './splash_navbar_container';
 import { Link } from 'react-router-dom';
 
-const Splash = () => {
+const Splash = ({ loggedIn }) => {
+  const buttons = loggedIn ?
+    <div className='splash-buttons'>
+      <Link to='/activity'><button className='splash-button-blue'>Open</button></Link>
+    </div> :
+    <div className='splash-buttons'>
+      <Link to='/login'><button className='splash-button-white'>Login</button></Link>
+      <Link to='/register'><button className='splash-button-blue'>Register</button></Link>
+    </div>
 
   return (
     <div>
@@ -16,10 +24,7 @@ const Splash = () => {
            get you the clout you deserve. Fun for all ages.
         </p>
 
-        <div className='splash-buttons'>
-          <Link to='/login'><button className='splash-login'>Login</button></Link>
-          <Link to='/register'><button className='splash-register'>Register</button></Link>
-        </div>
+        {buttons}
       </header>
     </div>
   );

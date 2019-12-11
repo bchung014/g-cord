@@ -13,7 +13,8 @@ const msp = state => ({
 
 const mdp = dispatch => ({
   submitRequest: user => dispatch(login(user)),
-  clearErrors: () => dispatch(clearErrors())
+  clearErrors: () => dispatch(clearErrors()),
+  demoLogin: () => dispatch(login({ email: 'warreng@regulate.com', password: 'hunter2' }))
 });
 
 export default connect(msp, mdp)(SessionForm);

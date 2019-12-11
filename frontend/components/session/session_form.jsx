@@ -66,7 +66,7 @@ export default class SessionForm extends React.Component {
   }
 
   render() {
-    const { formType } = this.props;
+    const { formType, demoLogin } = this.props;
 
     const welcomeText = formType === 'Login' ?
       <div className='session-welcome'>
@@ -112,7 +112,7 @@ export default class SessionForm extends React.Component {
 
           <label>
             <input className="session-submit" type="submit" value={formType}/>
-            {reverseLink}
+        
           </label>
           
         </form>

@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
 import SplashNavbar from './splash_navbar';
 
-const msp = state => {
+const msp = state => ({
+  loggedIn: Boolean(state.session.currentUserId)
+});
 
-};
 
 const mdp = dispatch => {
 
 };
 
-export default connect(null, null)(SplashNavbar);
+export default connect(msp, null)(SplashNavbar);

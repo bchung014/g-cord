@@ -1,7 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const SplashNavbar = () => {
+const SplashNavbar = ({ loggedIn }) => {
+  const login = loggedIn ?
+    <div>
+      <Link to='/activity'><button className='splash-navbar-login'>Open</button></Link>
+    </div> :
+    <div>
+      <Link to='/login'><button className='splash-navbar-login'>Login</button></Link>
+    </div>
+
 
   return (
     <nav className='splash-navbar'>
@@ -9,9 +17,7 @@ const SplashNavbar = () => {
         <Link to='/'><img className='splash-navbar-logo' src={window.icon} /></Link>
       </div>
 
-      <div>
-        <Link to='/login'><button className='splash-navbar-login'>Login</button></Link>
-      </div>
+      {login}
     </nav>
   );
 

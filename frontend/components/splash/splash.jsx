@@ -9,7 +9,7 @@ const Splash = () => {
       <SplashNavbar />
 
       <header className='splash-header'>
-        <h1>It's time to ditch the cornerstore and the abandoned trap down the block</h1>
+        <h1>It's time to ditch the cornerstore and the block</h1>
         <p>Text chat for cats trying to squash beef, start beef,
            and keyboard cyph with all the other fools from around
            the way. It's free, street-approved, and guaranteed to

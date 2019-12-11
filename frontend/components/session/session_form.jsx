@@ -33,6 +33,7 @@ export default class SessionForm extends React.Component {
 
   inputGenerator(field) {
     const { errors } = this.props;
+    const inputType = field === 'username' ? 'text' : field;
 
     if (errors[field]) {
       return(
@@ -43,7 +44,7 @@ export default class SessionForm extends React.Component {
           </div>
           <input
             className='session-input-errors'
-            type="text"
+            type={inputType}
             value={this.state.user[field]}
             onChange={this.update(field)} />
         </>
@@ -56,7 +57,7 @@ export default class SessionForm extends React.Component {
           </div>
           <input
             className='session-input'
-            type="text"
+            type={inputType}
             value={this.state.user[field]}
             onChange={this.update(field)} />
         </>

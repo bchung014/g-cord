@@ -20,7 +20,7 @@ const sessionErrorsReducer = (state = {}, action) => {
         } else if (error.includes('Password')) {
           Object.assign(allErrors, { password: error });
         } else if (error.includes('credentials')) {
-          Object.assign(allErrors, { username: '-' });
+          Object.assign(allErrors, { email: error, password: error });
         }
       });
       return allErrors;

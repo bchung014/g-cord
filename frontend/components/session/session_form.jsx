@@ -10,6 +10,7 @@ export default class SessionForm extends React.Component {
         errors: this.props.errors
       };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   componentWillUnmount() {
@@ -19,6 +20,11 @@ export default class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.submitRequest(this.state.user);
+  }
+
+  demoLogin(e) {
+    e.preventDefault();
+    this.props.submitRequest({ email: 'warreng@regulate.com', password: 'hunter2' });
   }
 
   update(field) {
@@ -66,7 +72,7 @@ export default class SessionForm extends React.Component {
   }
 
   render() {
-    const { formType, demoLogin } = this.props;
+    const { formType } = this.props;
 
     const welcomeText = formType === 'Login' ?
       <div className='session-welcome'>
@@ -87,13 +93,18 @@ export default class SessionForm extends React.Component {
       </label>
 
     const reverseLink = formType === 'Register' ?
-      <div className='session-link'>
+      <div className='session-link no-demo'>
         <Link to='/login'>Already have an account?</Link>
       </div> :
-      <div className='session-link'>
-        <p>Need an account?</p>
-        <Link to='/register'>Register</Link>
-      </div>
+      <>
+        <button
+          className='session-demo'
+          onClick={this.demoLogin}>Demo Login</button>
+        <div className='session-link'>
+          <p>Need an account?</p>
+          <Link to='/register'>Register</Link>
+        </div>
+      </>
 
     return(
       <div className='session-form-container'>
@@ -111,11 +122,12 @@ export default class SessionForm extends React.Component {
           </label>
 
           <label>
-            <input className="session-submit" type="submit" value={formType}/>
-        
+            <button className='session-button'>{formType}</button>
+            
+            {reverseLink}
           </label>
-          
         </form>
+
 
       </div>
     );

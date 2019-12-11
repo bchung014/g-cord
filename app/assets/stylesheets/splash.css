@@ -21,6 +21,7 @@
   border: 2px solid #949496;
   border-radius: 20px;
   padding: 8px 20px;
+  cursor: pointer;
 }
 
 /* Header */
@@ -56,6 +57,7 @@
   width: 200px;
   height: 35px;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 .splash-button-white {

@@ -76,14 +76,24 @@
   outline: none;
 }
 
-.session-submit {
-  background: #7289DA;
-  border: 0px;
+.session-form label > button {
+  align-self: stretch;
+  border-radius: 3px;
+  font-size: 16px;
   padding: 13px;
+  color: white;
+  cursor: pointer;
 }
 
-.session-submit:hover {
-  cursor: pointer;
+.session-button {
+  background: #7289DA;
+  margin: 0px 2px;
+}
+
+.session-demo {
+  background: #7777DD;
+  margin: 10px 2px;
+  margin-bottom: 15px;
 }
 
 .session-link {
@@ -102,4 +112,8 @@
 
 .session-link > a:hover {
   text-decoration: underline;
+}
+
+.no-demo {
+  margin-top: 15px;
 }

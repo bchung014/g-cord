@@ -9,10 +9,13 @@ const Splash = () => {
       <SplashNavbar />
 
       <header className='splash-header'>
-        <h1>It's time to ditch Skype and TeamSpeak</h1>
-        <p>All-in-one voice and text chat for gamers that's free, secure,
-            and works on both your desktop and phone. Stop paying for
-            TeamSpeak servers and hassling with Skype. Simplify your life.</p>
+        <h1>It's time to ditch the cornerstore and the abandoned trap down the block</h1>
+        <p>Text chat for cats trying to squash beef, start beef,
+           and keyboard cyph with all the other fools from around
+           the way. It's free, street-approved, and guaranteed to
+           get you the clout you deserve. Fun for all ages.
+        </p>
+
         <div className='splash-buttons'>
           <Link to='/login'><button className='splash-login'>Login</button></Link>
           <Link to='/register'><button className='splash-register'>Register</button></Link>

@@ -37,6 +37,16 @@
   font-size: 12px;
 }
 
+.session-input-header-errors {
+  display: flex;
+  color: #F04747;
+}
+
+.session-errors {
+  padding-left: 5px;
+  font-style: italic;
+}
+
 .session-form label > input {
   align-self: stretch;
   border-radius: 3px;

@@ -4,11 +4,16 @@ import { Link } from 'react-router-dom';
 export default class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      user: this.props.user,
-      errors: this.props.errors
-    };
+    this.state =
+      {
+        user: this.props.user,
+        errors: this.props.errors
+      };
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
   }
 
   handleSubmit(e) {
@@ -18,23 +23,35 @@ export default class SessionForm extends React.Component {
 
   update(field) {
     return (e) => {
-      this.setState({ [field]: e.currentTarget.value });
+      this.setState(
+        { 
+          user: Object.assign({}, this.state.user, { [field]: e.currentTarget.value })
+        }
+      );
     };
   }
 
-  // errorGenerator(formType) {
-  //   if (formType === 'Login') {
-  //     this.setState({})
-  //   } else {
+  errorGenerator(field) {
+    const { errors } = this.props;
 
-  //   }
-  // }
+    if (errors[field]) {
+      return(
+        <div className='session-input-header-errors'>
+          <span>{field.toUpperCase()}</span>
+          <span className='session-errors'>- &nbsp;{errors[field]}</span>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <span>{field.toUpperCase()}</span>
+        </div>
+      );
+    }
+  }
 
   render() {
-    const { formType, errors } = this.props;
-
-    // const currErrors = this.errorGenerator(formType);
-    // console.log(currErrors);
+    const { formType } = this.props;
 
     const welcomeText = formType === 'Login' ?
       <div className='session-welcome'>
@@ -45,8 +62,13 @@ export default class SessionForm extends React.Component {
         <h1>Create an account</h1>
       </div>
 
+    const emailErrors = this.errorGenerator('email');
+    const userErrors = this.errorGenerator('username');
+    const passwordErrors = this.errorGenerator('password');
+
     const userField = formType === 'Login' ? '' :    
-      <label>USERNAME {errors.username}
+      <label>
+        {userErrors}
         <input
           className='session-input'
           type="text"
@@ -68,7 +90,8 @@ export default class SessionForm extends React.Component {
         {welcomeText}
 
         <form className='session-form' onSubmit={this.handleSubmit}>
-          <label>EMAIL {errors.email}
+          <label>
+            {emailErrors}
             <input
               className='session-input'
               type="email"
@@ -78,7 +101,8 @@ export default class SessionForm extends React.Component {
 
           {userField}
 
-          <label>PASSWORD {errors.password}
+          <label>
+            {passwordErrors}
             <input
               className='session-input'
               type="password"

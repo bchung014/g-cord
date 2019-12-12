@@ -7,7 +7,7 @@
 
 .session-form-bg::after {
   content: "";
-  background: url('./session/session_bg.jpg');
+  background: asset_url('session_bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 0.2;

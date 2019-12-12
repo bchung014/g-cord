@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const SplashNavbar = ({ loggedIn }) => {
   const login = loggedIn ?
     <div>
-      <Link to='/activity'><button className='splash-navbar-login'>Open</button></Link>
+      <Link to='/activity' className='hello'><button className='splash-navbar-login'>Open</button></Link>
     </div> :
     <div>
       <Link to='/login'><button className='splash-navbar-login'>Login</button></Link>
@@ -12,6 +12,7 @@ const SplashNavbar = ({ loggedIn }) => {
 
 
   return (
+
     <nav className='splash-navbar'>
       <div>
         <Link to='/'><img className='splash-navbar-logo' src={window.icon} /></Link>
@@ -19,6 +20,7 @@ const SplashNavbar = ({ loggedIn }) => {
 
       {login}
     </nav>
+
   );
 
 };

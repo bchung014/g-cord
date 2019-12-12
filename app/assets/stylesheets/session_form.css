@@ -1,13 +1,34 @@
+.session-form-bg {
+  height: 100vh;
+  display: block;
+  position: relative;
+}
+
+.session-form-bg::after {
+  content: "";
+  background: url('./session/session_bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+
 .session-form-container {
   background: #36393F;
   box-sizing: border-box;
   max-width: 480px;
   color: white;
-  margin: auto;
-  margin-top: 100px;
+  margin-left: 500px;
+  /* opacity: 0.75; */
   border-radius: 5px;
   text-align: center;
   padding: 20px;
+  transform: translateY(160px);
 }
 
 .session-welcome {
@@ -15,8 +36,9 @@
 }
 
 .session-welcome > h1 {
-  font-size: 26px;
-  padding: 15px;
+  font-size: 24px;
+  padding: 6px;
+  font-weight: 400;
 }
 
 .session-welcome > p {
@@ -115,5 +137,5 @@
 }
 
 .no-demo {
-  margin-top: 15px;
+  margin-top: 15  px;
 }

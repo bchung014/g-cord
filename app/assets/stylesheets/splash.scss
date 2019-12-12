@@ -1,0 +1,111 @@
+/* Background */
+.splash-container {
+  height: 100vh;
+  display: block;
+  position: relative;
+}
+
+.splash-container::after {
+  content: "";
+  background: url('./splash/splash_bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+
+/* Navbar */
+.splash-navbar {
+  display: flex;
+  padding: 10px;
+  width: 90%;
+  margin: auto;
+  justify-content: space-between;
+  align-items: flex-start;
+  transform: translateY(10px);
+}
+
+.splash-navbar-logo {
+  max-width: 120px;
+  max-height: 120px;
+}
+
+.splash-navbar-login {
+  font-size: 13px;
+  background: #26262B;
+  color: #A8A8AA;
+  border: 2px solid #A8A8AA;
+  border-radius: 20px;
+  padding: 6px 16px;
+  cursor: pointer;
+}
+
+.splash-navbar-login:hover {
+  border: 2px solid white;
+  color: white;
+}
+
+/* Header */
+.splash-header {
+  display: flex;
+  flex-direction: column;
+  max-width: 820px;
+  margin: auto;
+  margin-top: 90px;
+  text-align: center;
+}
+
+.splash-header > h1 {
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+}
+
+.splash-header > p {
+  font-size: 16px;
+  color: white;
+  line-height: 22px;
+}
+
+.splash-header * {
+  margin-bottom: 16px;
+}
+
+.splash-buttons {
+  max-width: 590px;
+  margin: auto;
+  margin-top: 13px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.splash-buttons {
+  button {
+    font-size: 15px;
+    width: 260px;
+    height: 45px;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:hover {
+      transition: all 0.3s ease;
+      margin-top: 2px;
+    }
+  }
+}
+
+.splash-button-white {
+  background: white;
+  color: black;
+}
+
+.splash-button-blue {
+  background: #7289DA;
+  color: white;
+}

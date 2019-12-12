@@ -24,7 +24,7 @@ export default class SessionForm extends React.Component {
 
   demoLogin(e) {
     e.preventDefault();
-    this.props.submitRequest({ email: 'warreng@regulate.com', password: 'hunter2' });
+    this.props.submitRequest({ email: 'warreng@gmail.com', password: 'hunter2' });
   }
 
   update(field) {
@@ -107,28 +107,28 @@ export default class SessionForm extends React.Component {
       </>
 
     return(
-      <div className='session-form-container'>
-        {welcomeText}
+      <div className='session-form-bg'>
+        <div className='session-form-container'>
+          {welcomeText}
 
-        <form className='session-form' onSubmit={this.handleSubmit}>
-          <label>
-            {emailInput}
-          </label>
+          <form className='session-form' onSubmit={this.handleSubmit}>
+            <label>
+              {emailInput}
+            </label>
 
-          {userField}
+            {userField}
 
-          <label>
-            {passwordInput}
-          </label>
+            <label>
+              {passwordInput}
+            </label>
 
-          <label>
-            <button className='session-button'>{formType}</button>
-            
-            {reverseLink}
-          </label>
-        </form>
-
-
+            <label>
+              <button className='session-button'>{formType}</button>
+              
+              {reverseLink}
+            </label>
+          </form>
+        </div>
       </div>
     );
   }

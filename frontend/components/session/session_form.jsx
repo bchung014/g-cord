@@ -77,10 +77,11 @@ export default class SessionForm extends React.Component {
     const welcomeText = formType === 'Login' ?
       <div className='session-welcome'>
         <h1>Welcome back!</h1>
-        <p>We're so excited to see you again!</p>
+        <p>Talk to 'em. Who want what?</p>
       </div> :
       <div className='session-welcome'>
         <h1>Create an account</h1>
+        <p>They gonna learn today.</p>
       </div>
 
     const emailInput = this.inputGenerator('email');
@@ -92,19 +93,23 @@ export default class SessionForm extends React.Component {
         {userInput}
       </label>
 
-    const reverseLink = formType === 'Register' ?
-      <div className='session-link no-demo'>
-        <Link to='/login'>Already have an account?</Link>
+    const buttonLinks = formType === 'Register' ?
+      <div className='session-form-button-container'>
+        <button className='session-button'>{formType}</button>
+        <div className='session-link no-demo'>
+          <Link to='/login'>Already have an account?</Link>
+        </div>
       </div> :
-      <>
-        <button
-          className='session-demo'
-          onClick={this.demoLogin}>Demo Login</button>
+      <div className='session-form-button-container'>
+        <button className='session-button'>{formType}</button>
+        <button className='session-demo' onClick={this.demoLogin}>Demo Login</button>
         <div className='session-link'>
           <p>Need an account?</p>
           <Link to='/register'>Register</Link>
         </div>
-      </>
+      </div>
+
+        
 
     return(
       <div className='session-form-bg'>
@@ -122,11 +127,7 @@ export default class SessionForm extends React.Component {
               {passwordInput}
             </label>
 
-            <label>
-              <button className='session-button'>{formType}</button>
-              
-              {reverseLink}
-            </label>
+            {buttonLinks}
           </form>
         </div>
       </div>

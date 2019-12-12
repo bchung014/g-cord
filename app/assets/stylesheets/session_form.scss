@@ -83,15 +83,15 @@
   margin: 12px 2px;
   font-size: 16px;
   color: white;
+}
+
+.session-input {
+  border: 1px solid #040405;
 
   &:focus {
     outline: none;
     border: 1px solid #7289DA;
   }
-}
-
-.session-input {
-  border: 1px solid #040405;
 }
 
 
@@ -110,11 +110,15 @@
   padding: 10px;
   background: #313339;
   border: 1px solid red;
+
+  &:focus {
+    outline: none;
+  }
 }
 
-.session-input-errors:focus {
-  outline: none;
-}
+// .session-input-errors:focus {
+//   outline: none;
+// }
 
 .session-form label > button {
   align-self: stretch;

@@ -8,8 +8,6 @@
 .splash-container::after {
   content: "";
   background: asset_url('splash_bg.jpg');
-
-  // './splash/splash_bg.jpg'
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 0.2;

@@ -1,0 +1,13 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 20% 50% 30%;
+  border: 2px blue solid;
+  height: 500px;
+}
+
+.box {
+  background-color: beige;
+  color: black;
+  border-radius: 5px;
+  border: 2px dodgerblue solid;
+}

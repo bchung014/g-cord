@@ -81,7 +81,7 @@ export default class SessionForm extends React.Component {
       </div> :
       <div className='session-welcome'>
         <h1>Create an account</h1>
-        <p>They gonna learn today.</p>
+        <p>They gon' learn today.</p>
       </div>
 
     const emailInput = this.inputGenerator('email');

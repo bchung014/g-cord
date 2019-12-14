@@ -1,5 +1,6 @@
 import React from 'react';
 import ServersNavItem from './servers_nav_item';
+import { Link } from 'react-router-dom';
 
 export default class ServersNav extends React.Component {
   constructor(props) {
@@ -22,13 +23,21 @@ export default class ServersNav extends React.Component {
 
     return (
       <>
-        <h1>ServersNav</h1>
+        <div>
+          <Link to='/channels/@me'>
+            <li className='channels-nav-icon icon-me'>H</li>
+          </Link>
+          <div className='channels-nav-icon-border'></div>
+        </div>
+
         <ul>
           {ServerLis}
         </ul>
 
+        <div>
+          <button className='channels-nav-icon icon-add'>+</button>
+        </div>
       </>
     );
   }
-
 }

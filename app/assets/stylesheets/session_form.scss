@@ -33,6 +33,18 @@
   text-align: center;
   padding: 20px;
   transform: translateY(160px);
+
+  animation: 1s ease-out 0s 1 slideFromTop, fadein 0.5s;
+}
+
+@keyframes slideFromTop {
+  0% { transform: translateY(155px); }
+  100% { transform: translateY(160px); }
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 0.78; }
 }
 
 
@@ -80,13 +92,13 @@
   background: #313339;
   border-radius: 3px;
   padding: 10px;
-  margin: 12px 2px;
   font-size: 16px;
   color: white;
 }
 
 .session-input {
   border: 1px solid #040405;
+  margin: 10px 2px;
 
   &:focus {
     outline: none;
@@ -133,7 +145,6 @@
 // Session Form Button and Links
 .session-form-button-container {
   display: flex;
-  margin: 12px 2px;
 
   button {
     align-self: stretch;
@@ -176,7 +187,6 @@
 
 .session-link > a {
   color: #7289DA;
-  text-decoration: none;
 }
 
 .session-link > a:hover {

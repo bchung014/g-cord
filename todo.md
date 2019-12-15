@@ -5,8 +5,10 @@
 
 5. all servers?
 6. change users slice based on friends
+7. dependent destroy
 
 // loading phrases
 checking bags...
 catching bodies/hands...
 rolling sevens...
+chopping cheeses..

@@ -1,6 +1,7 @@
 import React from 'react';
 import AddServer from '../modal/add_server/add_server';
-import CreateServer from '../modal/add_server/create_server';
+import ServerForm from './add_server/server_form';
+import JoinServer from './add_server/join_server';
 
 const Modal = ({modal, closeModal}) => {
   if (!modal) {
@@ -14,7 +15,10 @@ const Modal = ({modal, closeModal}) => {
       component = <AddServer />
       break;
     case 'create_server':
-      component = <CreateServer />
+      component = <ServerForm />
+      break;
+    case 'join_server':
+      component = <JoinServer />
       break;
     default:
       return null;

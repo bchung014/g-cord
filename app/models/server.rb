@@ -22,7 +22,7 @@ class Server < ApplicationRecord
     foreign_key: :admin_id
 
   def self.generate_invite_code
-    SecureRandom.urlsafe_base64
+    SecureRandom.urlsafe_base64(4)
   end
 
   def ensure_invite_code

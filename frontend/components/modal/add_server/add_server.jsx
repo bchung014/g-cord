@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { openModal } from '../../../actions/modal_actions';
 
 const AddServer = ({ openModal }) => {
-
   return(
     <div className='add-server-container'>
       <header className='add-server-header'>
@@ -17,20 +16,23 @@ const AddServer = ({ openModal }) => {
             <div className='add-server-button-content'>
               Make a new spot to post up at. Don't forget your peoples.
             </div>
-            <div className='add-server-button-fauxbutton create-button'>Make it happen</div>
+            <div className='add-server-button-fauxbutton create-button'>
+              Make it happen
+            </div>
           </button>
           
         </section>
         <section>
-          <button>
+          <button onClick={() => openModal('join_server')}>
             <header className='add-server-button-header join-header'>Join</header>
             <div className='add-server-button-content'>
               If you got the juice, enter another neighborhood.
             </div>
-            <div className='add-server-button-fauxbutton join-button'>Pull up</div>
+            <div className='add-server-button-fauxbutton join-button'>
+              Pull up
+            </div>
           </button>
         </section>
-        
       </main>
     </div>
   );

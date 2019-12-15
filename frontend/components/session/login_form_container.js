@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
 import { login, clearErrors } from '../../actions/session_actions';
+import React from 'react';
 import SessionForm from './session_form';
+
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 const msp = state => ({
   formType: 'Login',

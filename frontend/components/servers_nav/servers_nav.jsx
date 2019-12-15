@@ -1,6 +1,7 @@
 import React from 'react';
 import ServersNavItem from './servers_nav_item';
 import { Link } from 'react-router-dom';
+import { openModal } from '../../actions/modal_actions';
 
 export default class ServersNav extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ export default class ServersNav extends React.Component {
   }
 
   render() {
-    const { servers } = this.props;
+    const { servers, openModal } = this.props;
     const ServerLis = servers.map((server, idx) => {
       return (
         <ServersNavItem 
@@ -35,7 +36,10 @@ export default class ServersNav extends React.Component {
         </ul>
 
         <div>
-          <button className='channels-nav-icon icon-add'>+</button>
+          <button 
+            className='channels-nav-icon icon-add'
+            onClick={() => openModal('add_server')}>+
+          </button>
         </div>
       </>
     );

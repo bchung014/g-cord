@@ -1,0 +1,171 @@
+// Add Server Modal
+.add-server-container {
+  width: 540px;
+  height: 420px;
+  background: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-server-header {
+  color: #7289DA;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin: 35px;
+  margin-bottom: 42px;
+}
+
+// Add Server Buttons
+.add-server-buttons-container {
+  display: flex;
+
+  section  {
+    box-sizing: border-box;
+    width: 218px;
+    height: 289px;
+    border: 1px solid #E5E5E5;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+
+    button {
+      cursor: pointer;
+    }
+
+    button:hover > .create-button {
+      background: #677BC4;
+    }
+
+    button:hover > .join-button {
+      background: #369368;
+    }
+  }
+
+  section:first-child {
+    margin-right: 22px;
+  }
+}
+
+.add-server-button-header {
+  color: #7289DA;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-top: 28px;
+  margin-bottom: 17px;
+}
+
+.join-header {
+  color: #3ca374;
+}
+
+.add-server-button-content {
+  padding: 0px 20px;
+  font-size: 13px;
+  color: #99AAB5;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 130px;
+}
+
+.add-server-button-fauxbutton {
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  background: #7289DA;
+  margin: auto;
+  padding: 13px 16px;
+  border-radius: 3px;
+  width: 75%;
+}
+
+.join-button {
+  background: #3ca374;
+}
+
+
+// Create Server Modal
+.create-server-title {
+  color: #7289DA;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin: 35px;
+  margin-bottom: 12px;
+}
+
+.create-server-blurb {
+  color: #99AAB5;
+  font-weight: 500;
+  padding: 0px 48px;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.create-server-input-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+  width: 100%;
+}
+
+.create-server-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 235px;
+  margin-right: 48px;
+  
+
+  p {
+    color: #87909c;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  input {
+    align-self: stretch;
+    border: none;
+    font-size: 15px;
+    padding: 10px 5px;
+    border-bottom: 2px solid #f0f0f0;
+  }
+
+  input:focus {
+    outline: none;
+  }
+}
+
+.create-server-preview {
+  box-sizing: content-box;
+  width: 128px;
+  height: 128px;
+  border-radius: 128px;
+  background: #7289DA;
+  border: 5px solid #ebebeb;
+  color: white;
+  cursor: pointer;
+  margin-right: 48px;
+}
+
+.create-server-footer-container {
+  margin-top: 80px;
+  height: 40%;
+  width: 100%;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: #f6f6f7;
+
+  color: green;
+}
+
+.create-server-footer {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 30px;
+}

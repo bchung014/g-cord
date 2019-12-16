@@ -42,8 +42,10 @@
 
 // Add server icon
 .icon-add {
+  margin-top: 8px;
   color: #43B581;
   font-size: 35px;
+  padding-bottom: 5px;
   cursor: pointer;
 }
 
@@ -51,7 +53,7 @@
   background: #43B581;
   color: white;
   border-radius: 16px;
-  transition: 0.2s; 
+  transition: 0.2s;
 }
 
 // Adding a line between home and servers
@@ -64,6 +66,10 @@
 ul {
   .channels-nav-icon {
     margin: 8px;
+  }
+  
+  .channels-nav-icon:last-child {
+    margin-bottom: 0px;
   }
 }
 

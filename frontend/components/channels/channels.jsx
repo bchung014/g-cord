@@ -17,7 +17,6 @@ export default class Channels extends React.Component {
         
         <div className='channels-content-container'>
           <h1>Content</h1>
-          <button onClick={this.props.logout}>LOGOUT HERE</button>
         </div>
       </div>
     );

@@ -41,7 +41,7 @@ export default class ServersNav extends React.Component {
         </ul>
 
         <div>
-          <button 
+          <button
             className='channels-nav-icon icon-add'
             onClick={() => openModal('add_server')}>+
           </button>

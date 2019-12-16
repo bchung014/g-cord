@@ -13,25 +13,53 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 
   cursor: pointer;
-  padding-left: 16px;
-  padding-right: 19px;
-
+  
   .menu-header-title {
+    padding-left: 16px;
     font-weight: 700;
     font-size: 15px;
   }
-
+  
   .menu-header-icon {
+    padding-right: 19px;
     font-size: 13px;
   }
 }
 
+// Menu header dropdown
+.menu-header-dropdown {
+  background: #18191C;
+  list-style: none;
+  padding: 8px;
+  border-radius: 5px;
+  min-width: 85%;
+
+  position: absolute;
+  top: 56.5px;
+  margin-left: 10px;
+
+  li {
+    padding: 6px;
+    font-size: 13px;
+
+    &:hover {
+      border-radius: 3px;
+      background: #212326;
+    }
+  }
+
+}
+
+
+// Menu Content
 .menu-content {
   height: 100%;
 
 }
+
 
 // Menu footer
 .menu-footer {

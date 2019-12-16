@@ -26,7 +26,6 @@ class JoinServer extends React.Component {
 
     joinServer(this.state.inviteCode)
       .then(({ server }) => {
-        debugger;
         closeModal();
         history.push(`${server.id}`);
       });

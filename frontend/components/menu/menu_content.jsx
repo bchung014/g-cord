@@ -6,7 +6,7 @@ class MenuContent extends React.Component {
   render() {
     return (
       <div className='menu-content'>
-        Menu content
+        {/* Menu content */}
       </div>
     );
   }

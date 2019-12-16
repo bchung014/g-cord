@@ -16,6 +16,9 @@ class Server < ApplicationRecord
   after_initialize :ensure_invite_code
 
   has_many :server_memberships
+  has_many :members,
+    through: :server_memberships,
+    source: :user
   belongs_to :admin,
     class_name: :User,
     primary_key: :id,

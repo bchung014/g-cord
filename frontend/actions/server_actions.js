@@ -52,3 +52,11 @@ export const joinServer = inviteCode => dispatch => (
       errors => dispatch(receiveServerErrors(errors.responseJSON))  
     )
 );
+
+export const leaveServer = serverId => dispatch => (
+  ServerAPIUtil.leaveServer(serverId)
+    .then(
+      server => dispatch(receiveServer(server)),
+      errors => dispatch(receiveServerErrors(errors.responseJSON))  
+    )
+);

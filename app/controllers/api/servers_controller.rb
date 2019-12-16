@@ -38,9 +38,14 @@ class Api::ServersController < ApplicationController
   end
 
   def leave
-    debugger;
-    current_user.servers.find_by(id: params[:id]).destroy
+    @server = current_user.servers.find_by(id: params[:id])
 
+    if @server
+      @server.members.delete(current_user)
+      render :show
+    else
+      render json: ['Unable to leave server'], status: 400
+    end
   end
 
   def destroy

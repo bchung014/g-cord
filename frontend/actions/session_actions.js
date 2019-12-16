@@ -23,6 +23,9 @@ export const clearErrors = () => ({
   type: CLEAR_ERRORS
 });
 
+
+// Action Thunk Creators
+
 export const register = user => dispatch => (
   SessionAPIUtil.register(user)
     .then(

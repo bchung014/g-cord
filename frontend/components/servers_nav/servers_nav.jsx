@@ -1,7 +1,6 @@
 import React from 'react';
 import ServersNavItem from './servers_nav_item';
 import { Link } from 'react-router-dom';
-import { openModal } from '../../actions/modal_actions';
 
 export default class ServersNav extends React.Component {
   constructor(props) {

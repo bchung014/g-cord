@@ -116,15 +116,31 @@
   flex-direction: column;
   align-items: flex-start;
   width: 235px;
-  margin-right: 48px;
+  margin-right: 40px;
   
-
-  p {
+  div {
     color: #87909c;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 12px;
+  }
+
+  section {
+    color: red;
+    font-size: 10px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    
+    p {      
+      text-transform: uppercase;
+    }
+
+    span {
+      font-style: italic;
+      font-weight: 400;
+    }
   }
 
   input {
@@ -150,6 +166,7 @@
   color: white;
   cursor: pointer;
   margin-right: 48px;
+  font-size: 44px;
 }
 
 .create-server-footer-container {
@@ -209,7 +226,7 @@
   font-size: 16px;
   text-transform: uppercase;
   margin: 35px;
-  margin-bottom: 25px; 
+  margin-bottom: 25px;
 }
 
 .join-server-blurb {

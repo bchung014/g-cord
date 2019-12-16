@@ -28,5 +28,4 @@ class Server < ApplicationRecord
   def ensure_invite_code
     self.invite_code ||= self.class.generate_invite_code
   end
-
 end

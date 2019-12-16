@@ -14,21 +14,18 @@ class Api::ServersController < ApplicationController
   end
 
   def create
-    @server = Server.new(server_params)
-    # @server.admin_id = current_user.id
-    @server.admin_id = 2
+    @server = current_user.admined_servers.new(server_params)
 
     if @server.save
+      current_user.servers << @server
       render :show
     else
-      render json @server.errors.full_messages, status: 422
+      render json: @server.errors.full_messages, status: 422
     end
   end
 
   def destroy
     debugger;
-
-    
   end
 
   private

@@ -1,5 +1,6 @@
 import React from 'react';
 import ServersNav from '../servers_nav/servers_nav_container';
+import Menu from '../menu/menu';
 
 export default class Channels extends React.Component {
 
@@ -11,7 +12,7 @@ export default class Channels extends React.Component {
         </div>
 
         <div className='channels-menu-container'>
-          <h1>Menu</h1>
+          <Menu />
         </div>
         
         <div className='channels-content-container'>

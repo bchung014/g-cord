@@ -44,3 +44,11 @@ export const createServer = server => dispatch => (
       errors => dispatch(receiveServerErrors(errors.responseJSON))  
     )
 );
+
+export const joinServer = inviteCode => dispatch => (
+  ServerAPIUtil.joinServer(inviteCode)
+    .then(
+      server => dispatch(receiveServer(server)),
+      errors => dispatch(receiveServerErrors(errors.responseJSON))  
+    )
+);

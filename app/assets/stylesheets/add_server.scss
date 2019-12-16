@@ -248,26 +248,36 @@
   align-items: center;
   width: 390px;
 
-  input {
-    font-size: 15px;
-    width: 388px;
-    padding-bottom: 10px;
-    border: none;
-    border-bottom: 2px solid #f0f0f0;
-    margin-bottom: 5px;
-
-    &:focus {
-      outline: none;
-    }
-  }
-
   p {
     align-self: flex-start;
     color: #99AAB5;
     font-size: 10px;
     margin-bottom: 0px;
   }
+
+  span {
+    color: red;
+  }
 }
+
+.join-server-input {
+  font-size: 15px;
+  width: 388px;
+  padding-bottom: 10px;
+  padding-left: 7px;
+  border: none;
+  border-bottom: 2px solid #f0f0f0;
+  margin-bottom: 5px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.with-errors {
+  color: red;
+}
+
 
 .join-server-footer-container {
   margin-top: 62px;

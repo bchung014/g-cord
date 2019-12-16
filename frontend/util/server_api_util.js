@@ -20,12 +20,12 @@ export const createServer = server => (
   })
 );
 
-// $.ajax({
-//   url: `/api/servers/`,
-//   method: 'post',
-//   data: {
-//     server: {
-//       name: 'pasadena'
-//     }
-//   }
-// })
+export const joinServer = inviteCode => (
+  $.ajax({
+    url: '/api/servers/join',
+    method: 'post',
+    data: {
+      inviteCode
+    }
+  })
+);

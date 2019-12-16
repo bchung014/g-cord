@@ -25,7 +25,13 @@ export default class ServersNav extends React.Component {
       <>
         <div>
           <Link to='/channels/@me'>
-            <li className='channels-nav-icon icon-me'>H</li>
+            <li className='channels-nav-icon icon-me'>
+              H
+              {/* for server hover tags */}
+              {/* <div className='channels-nav-tag-holder'>
+                <span className='channels-nav-tag'>Home</span>
+              </div> */}
+            </li>
           </Link>
           <div className='channels-nav-icon-border'></div>
         </div>

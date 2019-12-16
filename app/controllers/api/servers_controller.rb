@@ -37,6 +37,12 @@ class Api::ServersController < ApplicationController
     end
   end
 
+  def leave
+    debugger;
+    current_user.servers.find_by(id: params[:id]).destroy
+
+  end
+
   def destroy
     debugger;
   end

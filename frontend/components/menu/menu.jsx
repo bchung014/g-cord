@@ -1,12 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import MenuHeader from './menu_header';
+import MenuContent from './menu_content';
+import MenuFooter from './menu_footer';
 
 const Menu = () => {
 
   return(
-    <h1>Hello menu guys</h1>
+    <div className='menu-container'>
+      <MenuHeader />
+      <MenuContent />
+      <MenuFooter />
+    </div>
   );
-
 };
 
 

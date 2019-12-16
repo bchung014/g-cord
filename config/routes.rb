@@ -9,6 +9,10 @@ Rails.application.routes.draw do
       collection do
         post 'join'
       end
+
+      member do
+        delete 'leave'
+      end
     end
   end
 

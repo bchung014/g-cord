@@ -1,0 +1,40 @@
+// Menu main container
+.menu-container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+// Menu header
+.menu-header {
+  min-height: 48px;
+  border-bottom: 0.6px solid black;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+  padding-left: 16px;
+  padding-right: 19px;
+
+  .menu-header-title {
+    font-weight: 700;
+    font-size: 15px;
+  }
+
+  .menu-header-icon {
+    font-size: 13px;
+  }
+}
+
+.menu-content {
+  height: 100%;
+
+}
+
+// Menu footer
+.menu-footer {
+  min-height: 52px;
+  background: green;
+}

@@ -29,3 +29,11 @@ export const joinServer = inviteCode => (
     }
   })
 );
+
+// add leave server
+// replace hard-coded '1' with ${server.id}
+// $.ajax({
+//   url: '/api/servers/1/leave',
+//   method: 'delete',
+// })
+// add delete server

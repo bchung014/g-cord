@@ -14,14 +14,15 @@ const AddServer = ({ openModal }) => {
           <button onClick={() => openModal('create_server')}>
             <header className='add-server-button-header'>Create</header>
             <div className='add-server-button-content'>
-              Make a new spot to post up at. Don't forget your peoples.
+              Make a new spot for you and your peoples.
             </div>
             <div className='add-server-button-fauxbutton create-button'>
               Make it happen
             </div>
-          </button>
-          
+          </button>  
         </section>
+
+
         <section>
           <button onClick={() => openModal('join_server')}>
             <header className='add-server-button-header join-header'>Join</header>

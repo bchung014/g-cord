@@ -41,10 +41,10 @@ export default class ServersNav extends React.Component {
         </ul>
 
         <div>
-          <button
+          <li
             className='channels-nav-icon icon-add'
             onClick={() => openModal('add_server')}>+
-          </button>
+          </li>
         </div>
       </>
     );

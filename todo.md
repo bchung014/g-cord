@@ -6,6 +6,7 @@
 5. all servers?
 6. change users slice based on friends
 7. dependent destroy
+8. take out the window getstate junk
 
 // loading phrases
 checking bags...

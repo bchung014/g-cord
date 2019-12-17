@@ -4,6 +4,8 @@ import CreateServer from './add_server/create_server_container';
 import EditServer from './add_server/edit_server_container'
 import JoinServer from './add_server/join_server';
 import Invite from './invite';
+import CreateChannel from './add_channel/create_channel_container';
+import EditChannel from './add_channel/edit_channel_container';
 
 const Modal = ({modal, closeModal}) => {
   if (!modal) {
@@ -27,6 +29,12 @@ const Modal = ({modal, closeModal}) => {
       break;
     case 'invite':
       component = <Invite />
+      break;
+    case 'create_channel':
+      component = <CreateChannel />
+      break;
+    case 'edit_channel':
+      component = <EditChannel />
       break;
     default:
       return null;

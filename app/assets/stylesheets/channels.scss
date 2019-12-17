@@ -6,55 +6,13 @@
 }
 
 // Channels Server Nav
-.channels-nav-container {
+.channels-servers-nav-container {
   min-width: 72px;
   background: #202225;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
-
-// this is for the tag on hovering servers
-
-// .channels-nav-icon {
-//   &:hover span {
-//     display: block;
-//   }
-// }
-
-// .channels-nav-tag-holder {
-//   position: absolute;
-// }
-
-// // Server tag
-// .channels-nav-tag {
-//   display: none;
-//   position: relative;
-//   background: black;
-//   text-align: right;
-//   padding: 10px;
-//   // transform: translateX(70%);
-// }
-
-
-
-//potentillay adding the side thing to indicate current
-// .icon-container {
-//   position: relative;
-// }
-
-// .side-item {
-//   position: absolute;
-//   display: none;
-//   width: 8px;
-//   height: 40px;
-//   top: 16px;
-//   left: -15px;
-//   background: green;
-// }
-
-
 
 // Channels Side Menu
 .channels-menu-container {

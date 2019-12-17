@@ -28,6 +28,11 @@ class MenuHeaderDropdown extends React.Component {
     const { currentUser, currentServer } = this.state;
     const { deleteServer, leaveServer, openModal } = this.props;
 
+    // REMOVE THIS, THIS IS TO PROTECT HOME FROM BREAKING;
+    if (currentServer === undefined) {
+      return null;
+    }
+
     const dropdownOptions = currentUser.id === currentServer.admin_id ?
       <>
         <li 

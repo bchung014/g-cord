@@ -1,8 +1,14 @@
-// export const fetchChannel = channelId => (
-//   $.ajax({
-//     url: `/api/channels/${channelId}`,
-//   })
-// );
+export const fetchChannels = serverId => (
+  $.ajax({
+    url: `/api/servers/${serverId}/channels`,
+  })
+);
+
+export const fetchChannel = channel => (
+  $.ajax({
+    url: `/api/servers/${channel.server_id}/channels/${channelId}`,
+  })
+);
 
 export const createChannel = channel => (
   $.ajax({
@@ -11,3 +17,7 @@ export const createChannel = channel => (
     data: { channel }
   })
 );
+
+//edit channel
+
+//delete channel

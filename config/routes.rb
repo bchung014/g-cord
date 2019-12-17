@@ -4,12 +4,9 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:show, :create]
-
     resource :session, only: [:create, :destroy]
-
-    resources :servers, only: [:index, :show, :create, :destroy, :update] do
-      resources :channels, only: [:show, :create, :update, :destroy]
-
+    resources :servers, only: [:index, :show, :create, :update, :destroy] do
+      resources :channels, only: [:index, :show, :create, :update, :destroy]
       collection do
         post 'join'
       end

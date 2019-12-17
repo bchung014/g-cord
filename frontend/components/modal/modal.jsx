@@ -3,6 +3,7 @@ import AddServer from '../modal/add_server/add_server';
 import CreateServer from './add_server/create_server_container';
 import EditServer from './add_server/edit_server_container'
 import JoinServer from './add_server/join_server';
+import Invite from './invite';
 
 const Modal = ({modal, closeModal}) => {
   if (!modal) {
@@ -23,6 +24,9 @@ const Modal = ({modal, closeModal}) => {
       break;
     case 'join_server':
       component = <JoinServer />
+      break;
+    case 'invite':
+      component = <Invite />
       break;
     default:
       return null;

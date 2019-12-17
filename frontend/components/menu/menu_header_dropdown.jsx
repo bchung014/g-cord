@@ -30,6 +30,9 @@ class MenuHeaderDropdown extends React.Component {
 
     const dropdownOptions = currentUser.id === currentServer.admin_id ?
       <>
+        <li onClick={() => openModal('invite')}>
+          Invite
+        </li>
         <li onClick={() => openModal('edit_server')}>
           Edit
         </li>
@@ -37,9 +40,14 @@ class MenuHeaderDropdown extends React.Component {
           Delete
         </li>
       </> :
-      <li onClick={() => this.removeServer(leaveServer)}>
-        Leave
-      </li>
+      <>
+        <li>
+          Invite
+        </li>
+        <li onClick={() => this.removeServer(leaveServer)}>
+          Leave
+        </li>
+      </>
 
     return (
       <ul className='menu-header-dropdown'>

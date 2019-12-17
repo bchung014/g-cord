@@ -3,6 +3,7 @@ import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
 
 const serversReducer = (state = {}, action) => {
   Object.freeze(state);
+  // debugger;
 
   switch (action.type) {
     case RECEIVE_SERVERS:

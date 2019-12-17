@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { leaveServer, fetchServers } from '../../actions/server_actions';
+import { leaveServer, deleteServer, fetchServers } from '../../actions/server_actions';
 
 class MenuHeaderDropdown extends React.Component {
   constructor(props) {
@@ -9,15 +9,14 @@ class MenuHeaderDropdown extends React.Component {
 
     this.state = {
       currentUser: this.props.currentUser,
-      currentServerId: this.props.currentServerId
+      currentServer: this.props.currentServer
     }
   }
 
+  removeServer(removeType) {
+    const { fetchServers, history } = this.props;
 
-  leaveServer() {
-    const { leaveServer, fetchServers, history } = this.props;
-
-    leaveServer(this.state.currentServerId)
+    removeType(this.state.currentServer.id)
       .then(() => {
         history.push('@me');
         fetchServers();
@@ -25,19 +24,17 @@ class MenuHeaderDropdown extends React.Component {
   }
 
   render() {
-    const { currentUser, currentServerId } = this.state;
-    // debugger;
+    const { currentUser, currentServer } = this.state;
+    const { deleteServer, leaveServer } = this.props;
 
-    const dropdownOptions = currentUser.admined_servers.includes(currentServerId) ?
+    const dropdownOptions = currentUser.id === currentServer.admin_id ?
       <>
         <li>Edit</li>
-        <li>Delete</li>
+        <li onClick={() => this.removeServer(deleteServer)}>
+          Delete
+        </li>
       </> :
-      <li onClick={
-        e => {
-          this.leaveServer();
-          // e.stopPropagation();
-        }}>
+      <li onClick={() => this.removeServer(leaveServer)}>
         Leave
       </li>
 
@@ -52,11 +49,12 @@ class MenuHeaderDropdown extends React.Component {
 
 const msp = (state, ownProps) => ({
   currentUser: state.entities.users[state.session.currentUserId],
-  currentServerId: parseInt(ownProps.match.params.channelId)
+  currentServer: state.entities.servers[ownProps.match.params.channelId]
 });
 
 const mdp = dispatch => ({
   leaveServer: serverId => dispatch(leaveServer(serverId)),
+  deleteServer: serverId => dispatch(deleteServer(serverId)),
   fetchServers: () => dispatch(fetchServers())
 });
 

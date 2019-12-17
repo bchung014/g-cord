@@ -60,3 +60,11 @@ export const leaveServer = serverId => dispatch => (
       errors => dispatch(receiveServerErrors(errors.responseJSON))  
     )
 );
+
+export const deleteServer = serverId => dispatch => (
+  ServerAPIUtil.deleteServer(serverId)
+    .then(
+      server => dispatch(receiveServer(server)),
+      errors => dispatch(receiveServerErrors(errors.responseJSON))
+    )
+);

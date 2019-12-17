@@ -29,8 +29,6 @@ class ServerForm extends React.Component {
         closeModal();
         history.push(`${server.id}`);
       });
-
-    this.forceUpdate()
   }
 
   update(field) {

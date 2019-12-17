@@ -37,6 +37,9 @@ export const leaveServer = serverId => (
   })
 );
 
-// add leave server
-// replace hard-coded '1' with ${server.id}
-// add delete server
+export const deleteServer = serverId => (
+  $.ajax({
+    url: `/api/servers/${serverId}`,
+    method: 'delete'
+  })
+);

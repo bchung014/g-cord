@@ -14,7 +14,7 @@ class MenuHeaderDropdown extends React.Component {
   }
 
 
-  leaveServer(id) {
+  leaveServer() {
     const { leaveServer, fetchServers, history } = this.props;
 
     leaveServer(this.state.currentServerId)
@@ -33,7 +33,11 @@ class MenuHeaderDropdown extends React.Component {
         <li>Edit</li>
         <li>Delete</li>
       </> :
-      <li onClick={() => this.leaveServer()}>
+      <li onClick={
+        e => {
+          this.leaveServer();
+          // e.stopPropagation();
+        }}>
         Leave
       </li>
 

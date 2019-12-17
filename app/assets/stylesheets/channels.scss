@@ -5,7 +5,6 @@
   min-height: 100vh;
 }
 
-
 // Channels Server Nav
 .channels-nav-container {
   min-width: 72px;
@@ -13,65 +12,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.channels-nav-icon {
-  width: 48px;
-  height: 48px;
-  background: #36393F;
-  border-radius: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-size: 20px;
-  transition: border-radius 0.3s;
-}
-
-// Server icon hover
-.channels-nav-icon:hover {
-  background: #7289DA;
-  border-radius: 16px;
-  transition: 0.2s;
-}
-
-// Home server icon
-.icon-me {
-  margin-top: 12px;
-  margin-bottom: 8px;
-}
-
-// Add server icon
-.icon-add {
-  margin-top: 8px;
-  color: #43B581;
-  font-size: 35px;
-  // padding-bottom: 20%;
-  cursor: pointer;
-}
-
-.icon-add:hover {
-  background: #43B581;
-  color: white;
-  border-radius: 16px;
-  transition: 0.2s;
-}
-
-// Adding a line between home and servers
-.channels-nav-icon-border {
-  width: 66%;
-  margin: auto;
-  border-bottom: 2px solid #2D2F32;
-}
-
-ul {
-  .channels-nav-icon {
-    margin: 8px;
-  }
-  
-  .channels-nav-icon:last-child {
-    margin-bottom: 0px;
-  }
 }
 
 

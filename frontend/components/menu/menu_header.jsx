@@ -8,17 +8,27 @@ class MenuHeader extends React.Component {
     super(props);
 
     this.state = {
-      dropdownOpen: false
+      dropdownOpen: false,
+      clicked: false
     };
 
     this.toggleDropdown = this.toggleDropdown.bind(this);
   }
 
-  toggleDropdown() {
-    // debugger;
-    this.setState(prevState => ({
-      dropdownOpen: !prevState.dropdownOpen
-    }));
+  toggleDropdown(e) {
+    // Handles the case where blurring would cause the dropdown
+    // to reappear after clicking twice
+    if (e.type === 'blur' && this.state.clicked) {  
+      this.setState({
+        dropdownOpen: false,
+        clicked: false
+      });
+    } else if (e.type == 'click') {
+      this.setState(prevState => ({
+        dropdownOpen: !prevState.dropdownOpen,
+        clicked: true
+      }));
+    }
   }
 
   render() {
@@ -41,8 +51,8 @@ class MenuHeader extends React.Component {
 
     return (
       <div
-        onClick={() => this.toggleDropdown()}
-        onBlur={() => this.toggleDropdown()}
+        onClick={e => this.toggleDropdown(e)}
+        onBlur={e => this.toggleDropdown(e)}
         tabIndex='0'
         className='menu-header'>
         {menuDropdown}

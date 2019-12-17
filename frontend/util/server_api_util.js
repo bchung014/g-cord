@@ -20,6 +20,17 @@ export const createServer = server => (
   })
 );
 
+export const editServer = server => (
+  $.ajax({
+    url: `/api/servers/${server.id}`,
+    method: 'patch',
+    data: {
+      server
+    }
+  })
+);
+
+
 export const joinServer = inviteCode => (
   $.ajax({
     url: '/api/servers/join',

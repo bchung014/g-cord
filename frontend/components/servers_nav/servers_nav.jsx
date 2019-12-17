@@ -25,8 +25,11 @@ export default class ServersNav extends React.Component {
       <ul className='servers-nav-container'>
         <li className='servers-nav-item blue-icon'>
           <NavLink to='/channels/@me' className='servers-nav-link'>
-            H
-           </NavLink>
+            <i className="fas fa-city"></i>
+          </NavLink>
+
+          <div className='arrow-left'></div>
+          <div className='servers-nav-tag'>Crib</div>
         </li>
 
         <div className='servers-nav-icon-border'></div>
@@ -38,15 +41,12 @@ export default class ServersNav extends React.Component {
             className='servers-nav-link'
             onClick={() => openModal('add_server')}>
             +
-           </div>
+          </div>
+
+          <div className='arrow-left'></div>
+          <div className='servers-nav-tag'>Add a Server </div>
         </li>
       </ul>
     );
   }
 }
-
-
-{/* for server hover tags */}
-{/* <div className='channels-nav-tag-holder'>
-  <span className='channels-nav-tag'>Home</span>
-</div> */}

@@ -30,22 +30,41 @@ class MenuHeaderDropdown extends React.Component {
 
     const dropdownOptions = currentUser.id === currentServer.admin_id ?
       <>
-        <li onClick={() => openModal('invite')}>
+        <li 
+          className='menu-header-dropdown-invite'
+          onClick={() => openModal('invite')}>
           Invite
+          <div className='menu-header-dropdown-icon-container'>
+            <i className="fas fa-user-plus"></i>
+          </div>
         </li>
         <li onClick={() => openModal('edit_server')}>
           Edit
+          <div className='menu-header-dropdown-icon-container'>
+            <i className="fas fa-edit"></i>
+          </div>
         </li>
         <li onClick={() => this.removeServer(deleteServer)}>
           Delete
+          <div className='menu-header-dropdown-icon-container'>
+            <i className="fas fa-trash-alt"></i>
+          </div>
         </li>
       </> :
       <>
-        <li>
+        <li
+          className='menu-header-dropdown-invite'
+          onClick={() => openModal('invite')}>
           Invite
+          <div className='menu-header-dropdown-icon-container'>
+            <i className="fas fa-user-plus"></i>
+          </div>
         </li>
         <li onClick={() => this.removeServer(leaveServer)}>
           Leave
+          <div className='menu-header-dropdown-icon-container'>
+            <i className="fas fa-sign-out-alt"></i>
+          </div>
         </li>
       </>
 

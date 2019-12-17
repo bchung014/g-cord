@@ -8,14 +8,28 @@ class Invite extends React.Component {
     const { server } = this.props;
 
     return(
-      <h1>{server.invite_code}</h1>
+      <div className='invite-container'>
+        <header className='invite-header'>
+          Invite friends to {server.name}
+        </header>
+
+
+        <input
+          autoFocus
+          className='invite-input' 
+          type="text"
+          value={server.invite_code}
+          onChange={() => {}}
+          />
+      </div>
     );
   }
 
 }
 
 const msp = (state, ownProps) => {
-  const serverId = parseInt(ownProps.history.location.pathname.split('/channels/').pop());
+  const serverId = ownProps.match.params.channelId;
+  
   return {
     server: state.entities.servers[serverId]
   };

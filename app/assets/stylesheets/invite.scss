@@ -1,0 +1,35 @@
+// Invite container
+.invite-container {
+  width: 440px;
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px;
+  background: #36393F;
+  border-radius: 5px;
+}
+
+// Invite header title
+.invite-header {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+// Invite input with autofocus and autofilled invite code
+.invite-input {
+  background: #2B2E33;
+  border: none;
+  font-size: 16px;
+  color: white;
+  border-radius: 3px;
+  border: 1px solid #040405;
+  padding: 12px;
+  margin-top: 20px;
+  
+  &:focus {
+    outline: none;
+    border: 1px solid #677BC4;
+    border-radius: 3px;
+  }
+}

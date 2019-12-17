@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import ServerForm from './server_form';
 
 const msp = (state, ownProps) => {
-  const serverId = parseInt(ownProps.history.location.pathname.split('/channels/').pop());
+  const serverId = ownProps.match.params.channelId;
 
   return {
     formType: 'Edit',

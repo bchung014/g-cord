@@ -42,15 +42,29 @@
   margin-left: 10px;
 
   li {
-    padding: 6px;
+    padding: 6px 0px;
+    padding-left: 6px;
     font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     &:hover {
       border-radius: 3px;
       background: #212326;
     }
   }
+}
 
+// Menu header dropdown invite button
+.menu-header-dropdown-invite {
+  color: #677BC4;
+}
+
+.menu-header-dropdown-icon-container {
+  width: 12%;
+  display: flex;
+  justify-content: center;
 }
 
 

@@ -8,13 +8,57 @@
   width: 48px;
   height: 48px;
   border-radius: 24px;
-
+  position: relative;
+  
   background: #36393F;
   margin: 8px;
 
   cursor: pointer;
 
+
   transition: border-radius 0.3s;
+
+  &:hover > .servers-nav-tag {
+    display: flex;
+    align-items: center;
+  }
+
+  &:hover > .arrow-left {
+    display: block;
+  }
+
+}
+
+// Arrow for nav tag
+.arrow-left {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    width: 0; 
+    height: 0;
+    bottom: 16px;
+    left: 51px;
+
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent; 
+    
+    border-right: 8px solid black; 
+}
+
+// Nav tag
+.servers-nav-tag {
+  display: none;
+  position: absolute;
+  top: 6px;
+  left: 56px;
+  z-index: 2;
+
+  background: black;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  padding: 11px;
 }
 
 // Extra class for blue icon transitions

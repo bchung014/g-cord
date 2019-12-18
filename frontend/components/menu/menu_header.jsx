@@ -8,24 +8,20 @@ class MenuHeader extends React.Component {
     super(props);
 
     this.state = {
-      dropdownOpen: false,
-      clicked: false
+      dropdownOpen: false
     };
 
     this.toggleDropdown = this.toggleDropdown.bind(this);
   }
 
   toggleDropdown() {
-    this.setState(prevState => ({
-      dropdownOpen: !prevState.dropdownOpen,
-      clicked: true
-    }));
+    this.setState(prevState => ({ dropdownOpen: !prevState.dropdownOpen }));
   }
 
   render() {
     const { server } = this.props;
     let sanitizedServerName;
-    
+
     if (server) {
       if (server.name.length > 20) {
         sanitizedServerName = server.name.slice(0, 21) + '...';
@@ -34,11 +30,7 @@ class MenuHeader extends React.Component {
       }
     }
 
-    const menuTitle = !server ? 
-      'Home' : sanitizedServerName;
-
-    const menuDropdown = this.state.dropdownOpen ?
-      <MenuHeaderDropdown /> : '';
+    const menuDropdown = this.state.dropdownOpen ? <MenuHeaderDropdown /> : '';
 
     return (
       <div
@@ -48,7 +40,7 @@ class MenuHeader extends React.Component {
         className='menu-header'>
         {menuDropdown}
         <div className='menu-header-title'>
-          {menuTitle}
+          {sanitizedServerName}
         </div>
 
         <div className='menu-header-icon'>

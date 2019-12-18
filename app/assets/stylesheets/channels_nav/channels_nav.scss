@@ -22,16 +22,17 @@
   }
 }
 
-// Aligns the chevron icon from the left
+// Highlighting of text channels header
 .channels-text-header-title {
-  i {
-    font-size: 6px;
-    margin-right: 6.5px;
-  }
-
   &:hover {
     color: #DCDDDE;
   }
+}
+
+// Aligns the chevron icon from the left
+.channels-text-header-title > i {
+  font-size: 6px;
+  margin-right: 6.5px;
 }
 
 // Aligns the add icon from the right
@@ -44,10 +45,6 @@
     }
   }
 }
-
-
-
-
 
 // Channel nav ul
 .channels-nav-container {
@@ -92,14 +89,16 @@
 .channels-nav-buttons {
   display: flex;
   font-size: 14px;
+}
 
-  i:first-child {
-    margin-right: 5px;
-  }
+// Space between invite and settings
+.invite-icon {
+  margin-right: 5px;
+}
 
-  i:hover {
-    color: #DCDDDE;
-  }
+// Hover effect on buttons
+.channels-nav-icon:hover {
+  color: #DCDDDE;
 }
 
 

@@ -9,10 +9,16 @@ const Menu = ({ serverId }) => {
   
   // RENDER SOMETHING DIFFERENT FOR HOME
   if (serverId === '@me') {
-    return <h1>This is the temporary home</h1>
-  }
-  
-  return(
+    return(
+      <div className='menu-container'>
+        <div className='dms-container'>
+          dms
+          {/* replace this with a component for DMS */}
+        </div>
+        <MenuFooter />
+      </div>
+    );
+  } else return(
     <div className='menu-container'>
       <MenuHeader />
       <MenuContent />

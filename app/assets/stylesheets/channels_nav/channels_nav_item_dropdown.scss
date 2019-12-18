@@ -1,0 +1,74 @@
+// Parent container for settings dropdown menu
+.channels-nav-settings {
+  position: relative;
+}
+
+.item-dropdown-container {
+  // Need to re-apply the font because it is inheriting font from icon
+  font-family: 'Open Sans', sans-serif;
+
+  position: absolute;
+  top: 1.3em;
+
+  min-width: 80px;
+  // padding: 8px;
+  border-radius: 5px;
+  background: #18191C;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid red;
+    align-items: center;
+    padding: 10px;
+    font-size: 13px;
+
+    // &:hover {
+    //   border-radius: 3px;
+    //   background: #212326;
+    // }
+  }
+}
+
+// // Menu header dropdown
+// .menu-header-dropdown {
+//   background: #18191C;
+//   list-style: none;
+//   padding: 8px;
+//   border-radius: 5px;
+//   min-width: 85%;
+
+//   position: absolute;
+//   top: 56.5px;
+//   margin-left: 10px;
+
+//   li {
+//     padding: 6px 0px;
+//     padding-left: 6px;
+//     font-size: 13px;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+
+//     &:hover {
+//       border-radius: 3px;
+//       background: #212326;
+//     }
+//   }
+// }
+
+// // Menu header dropdown invite button
+// .menu-header-dropdown-invite {
+//   color: #677BC4;
+// }
+
+// // Menu header dropdown danger buttons (delete, leave server)
+// .menu-header-dropdown-danger {
+//   color: rgb(243, 70, 71); 
+// }
+
+// .menu-header-dropdown-icon-container {
+//   width: 12%;
+//   display: flex;
+//   justify-content: center;
+// }

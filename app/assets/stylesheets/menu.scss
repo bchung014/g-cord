@@ -31,13 +31,14 @@
 
 // Menu header dropdown
 .menu-header-dropdown {
+  position: absolute;
+  z-index: 2;
+
   background: #18191C;
-  list-style: none;
   padding: 8px;
   border-radius: 5px;
   min-width: 85%;
 
-  position: absolute;
   top: 56.5px;
   margin-left: 10px;
 

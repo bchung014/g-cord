@@ -2,8 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
+import ChannelsNavItemDropdown from './channels_nav_item_dropdown';
 
 class ChannelsNavItem extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      dropdownOpen: false
+    };
+
+    this.toggleDropdown = this.toggleDropdown.bind(this);
+  }
+
+  toggleDropdown() {
+    this.setState(prevState => ({ dropdownOpen: !prevState.dropdownOpen }));
+  }
 
   render() {
     const { channel, openModal } = this.props;
@@ -15,6 +29,8 @@ class ChannelsNavItem extends React.Component {
       sanitizedChannelName = channel.name;
     }
 
+    const itemDropdown = this.state.dropdownOpen ? <ChannelsNavItemDropdown /> : '';
+
     return(
       <NavLink
         to={`/servers/${channel.server_id}/channels/${channel.id}`}
@@ -25,10 +41,21 @@ class ChannelsNavItem extends React.Component {
             <p>{sanitizedChannelName}</p>
           </div>
           <div className='channels-nav-buttons'>
-            <i
-              onClick={() => openModal('invite')} 
-              className="fas fa-sign-out-alt"></i>
-            <i className="fas fa-cog"></i>
+            <div>
+              <i
+                onClick={() => openModal('invite')} 
+                className="channels-nav-icon invite-icon fas fa-sign-out-alt"></i>
+            </div>
+
+            <div>
+              <i
+                className="channels-nav-icon fas fa-cog"
+                onClick={() => this.toggleDropdown()}
+                onBlur={() => this.setState({ dropdownOpen: false })}
+                tabIndex='0'>
+              </i>
+              {itemDropdown}
+            </div>
           </div>
         </li>
       </NavLink>

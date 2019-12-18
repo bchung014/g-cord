@@ -11,7 +11,7 @@ class MenuHeaderDropdown extends React.Component {
     this.state = {
       currentUser: this.props.currentUser,
       currentServer: this.props.currentServer
-    }
+    };
   }
 
   removeServer(removeType) {

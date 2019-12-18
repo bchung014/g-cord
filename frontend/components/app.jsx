@@ -4,7 +4,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import RegisterFormContainer from './session/register_form_container';
 import LoginFormContainer from './session/login_form_container';
 import SplashContainer from './splash/splash_container';
-import ChannelsContainer from './channels/channels_container'
+import ServersContainer from './servers/servers_container';
 import ModalContainer from './modal/modal_container';
 
 const App = () => (
@@ -15,7 +15,7 @@ const App = () => (
       <Route exact path='/' component={SplashContainer} />
       <AuthRoute exact path='/register' component={RegisterFormContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <ProtectedRoute path='/servers/:serverId' component={ChannelsContainer} /> 
+      <ProtectedRoute path='/servers/:serverId' component={ServersContainer} /> 
     </Switch>
   </div>
   

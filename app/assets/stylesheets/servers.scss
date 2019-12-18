@@ -1,12 +1,12 @@
-// Channels Main
-.channels-container {
+// Servers Main
+.servers-container {
   display: flex;
   box-sizing:border-box;
   min-height: 100vh;
 }
 
-// Channels Server Nav
-.channels-servers-nav-container {
+// Servers Server Nav
+.servers-main-nav-container {
   min-width: 72px;
   background: #202225;
   display: flex;
@@ -14,15 +14,15 @@
   align-items: center;
 }
 
-// Channels Side Menu
-.channels-menu-container {
+// Servers Side Menu
+.servers-menu-container {
   min-width: 240px;
   background: #2F3136;
 }
 
 
-// Channels Main Content
-.channels-content-container {
+// Servers Main Content
+.servers-content-container {
   width: 100%;
   background: #36393F;
 }

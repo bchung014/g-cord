@@ -1,12 +1,10 @@
 import { connect } from 'react-redux';
-import Channels from './channels';
+import Servers from './servers';
 
 const msp = state => {
 };
 
 const mdp = dispatch => ({
-
-
 });
 
-export default connect(null, null)(Channels);
+export default connect(null, null)(Servers);

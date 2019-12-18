@@ -29,8 +29,6 @@ class ChatRoom extends React.Component {
   }
 
   render() {
-    console.log("CHATROOM");
-
     const messageList = this.state.messages.map((message, idx) => {
       return (
         <li key={idx}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import ServersNavItem from './servers_nav_item';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default class ServersNav extends React.Component {
   constructor(props) {
@@ -22,31 +22,31 @@ export default class ServersNav extends React.Component {
     });
 
     return (
-      <>
-        <div>
-          <Link to='/channels/@me'>
-            <li className='channels-nav-icon icon-me'>
-              H
-              {/* for server hover tags */}
-              {/* <div className='channels-nav-tag-holder'>
-                <span className='channels-nav-tag'>Home</span>
-              </div> */}
-            </li>
-          </Link>
-          <div className='channels-nav-icon-border'></div>
-        </div>
+      <ul className='servers-nav-container'>
+        <li className='servers-nav-item blue-icon'>
+          <NavLink to='/servers/@me' className='servers-nav-link'>
+            <i className="fas fa-city"></i>
+          </NavLink>
 
-        <ul>
-          {ServerLis}
-        </ul>
+          <div className='arrow-left'></div>
+          <div className='servers-nav-tag'>Crib</div>
+        </li>
 
-        <div>
-          <li
-            className='channels-nav-icon icon-add'
-            onClick={() => openModal('add_server')}>+
-          </li>
-        </div>
-      </>
+        <div className='servers-nav-icon-border'></div>
+
+        {ServerLis}
+
+        <li className='servers-nav-item green-icon'>
+          <div
+            className='servers-nav-link'
+            onClick={() => openModal('add_server')}>
+            +
+          </div>
+
+          <div className='arrow-left'></div>
+          <div className='servers-nav-tag'>Add a Server </div>
+        </li>
+      </ul>
     );
   }
 }

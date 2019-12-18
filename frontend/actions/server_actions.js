@@ -45,6 +45,14 @@ export const createServer = server => dispatch => (
     )
 );
 
+export const editServer = server => dispatch => (
+  ServerAPIUtil.editServer(server)
+    .then(
+      server => dispatch(receiveServer(server)),
+      errors => dispatch(receiveServerErrors(errors.responseJSON))
+    )
+);
+
 export const joinServer = inviteCode => dispatch => (
   ServerAPIUtil.joinServer(inviteCode)
     .then(
@@ -58,5 +66,13 @@ export const leaveServer = serverId => dispatch => (
     .then(
       server => dispatch(receiveServer(server)),
       errors => dispatch(receiveServerErrors(errors.responseJSON))  
+    )
+);
+
+export const deleteServer = serverId => dispatch => (
+  ServerAPIUtil.deleteServer(serverId)
+    .then(
+      server => dispatch(receiveServer(server)),
+      errors => dispatch(receiveServerErrors(errors.responseJSON))
     )
 );

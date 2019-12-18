@@ -15,6 +15,8 @@ class Server < ApplicationRecord
 
   after_initialize :ensure_invite_code
 
+  has_many :channels, dependent: :destroy
+
   has_many :server_memberships
   has_many :members,
     through: :server_memberships,

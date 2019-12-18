@@ -6,7 +6,7 @@ const serversReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_SERVERS:
-      return action.servers;
+      return Object.assign({}, state, action.servers);
     case RECEIVE_SERVER:
       return Object.assign({}, state, { [action.server.id]: action.server });
     case LOGOUT_CURRENT_USER:

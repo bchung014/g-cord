@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Splash = ({ loggedIn }) => {
   const buttons = loggedIn ?
     <div className='splash-buttons'>
-      <Link to='/channels/@me'>
+      <Link to='/servers/@me'>
         <button className='splash-button-blue'>Open</button>
       </Link>
     </div> :

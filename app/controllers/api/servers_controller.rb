@@ -24,6 +24,33 @@ class Api::ServersController < ApplicationController
     end
   end
 
+  def update
+    @server = current_user.admined_servers.find_by(id: params[:id])
+
+    if @server && server_params[:name] != @server.name
+      if @server.update(server_params)
+        render :show
+      else
+        render json: @server.errors.full_messages, status: 422
+      end
+    elsif @server
+      render json: ['Name cannot be the same'], status: 400
+    else
+      render json: ['Server does not exist'], status: 404
+    end
+  end
+
+  def destroy
+    @server = current_user.admined_servers.find_by(id: params[:id])
+
+    if @server
+      @server.delete
+      render :show
+    else
+      render json: ['Unable to delete server'], status: 400
+    end
+  end
+  
   def join
     @server = Server.find_by(invite_code: params[:inviteCode])
 
@@ -48,9 +75,6 @@ class Api::ServersController < ApplicationController
     end
   end
 
-  def destroy
-    debugger;
-  end
 
   private
 

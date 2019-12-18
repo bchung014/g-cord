@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { leaveServer, fetchServers } from '../../actions/server_actions';
+import { leaveServer, deleteServer, fetchServers } from '../../actions/server_actions';
+import { openModal } from '../../actions/modal_actions.js';
 
 class MenuHeaderDropdown extends React.Component {
   constructor(props) {
@@ -9,15 +10,14 @@ class MenuHeaderDropdown extends React.Component {
 
     this.state = {
       currentUser: this.props.currentUser,
-      currentServerId: this.props.currentServerId
+      currentServer: this.props.currentServer
     }
   }
 
+  removeServer(removeType) {
+    const { fetchServers, history } = this.props;
 
-  leaveServer(id) {
-    const { leaveServer, fetchServers, history } = this.props;
-
-    leaveServer(this.state.currentServerId)
+    removeType(this.state.currentServer.id)
       .then(() => {
         history.push('@me');
         fetchServers();
@@ -25,17 +25,54 @@ class MenuHeaderDropdown extends React.Component {
   }
 
   render() {
-    const { currentUser, currentServerId } = this.state;
+    const { currentUser, currentServer } = this.state;
+    const { deleteServer, leaveServer, openModal } = this.props;
+
     // debugger;
 
-    const dropdownOptions = currentUser.admined_servers.includes(currentServerId) ?
+    const dropdownOptions = currentUser.id === currentServer.admin_id ?
       <>
-        <li>Edit</li>
-        <li>Delete</li>
+        <li 
+          className='menu-header-dropdown-invite'
+          onClick={() => openModal('invite')}>
+          Invite
+          <div className='menu-header-dropdown-icon-container'>
+            <i className="fas fa-user-plus"></i>
+          </div>
+        </li>
+        <li onClick={() => openModal('edit_server')}>
+          Edit
+          <div className='menu-header-dropdown-icon-container'>
+            <i className="fas fa-edit"></i>
+          </div>
+        </li>
+        <li
+          className='menu-header-dropdown-danger'
+          onClick={() => this.removeServer(deleteServer)}>
+          Delete
+          <div className='menu-header-dropdown-icon-container'>
+            <i className="fas fa-trash-alt"></i>
+          </div>
+        </li>
       </> :
-      <li onClick={() => this.leaveServer()}>
-        Leave
-      </li>
+      <>
+        <li
+          className='menu-header-dropdown-invite'
+          onClick={() => openModal('invite')}>
+          Invite
+          <div className='menu-header-dropdown-icon-container'>
+            <i className="fas fa-user-plus"></i>
+          </div>
+        </li>
+        <li
+          className='menu-header-dropdown-danger' 
+          onClick={() => this.removeServer(leaveServer)}>
+          Leave
+          <div className='menu-header-dropdown-icon-container'>
+            <i className="fas fa-sign-out-alt"></i>
+          </div>
+        </li>
+      </>
 
     return (
       <ul className='menu-header-dropdown'>
@@ -48,12 +85,14 @@ class MenuHeaderDropdown extends React.Component {
 
 const msp = (state, ownProps) => ({
   currentUser: state.entities.users[state.session.currentUserId],
-  currentServerId: parseInt(ownProps.match.params.channelId)
+  currentServer: state.entities.servers[ownProps.match.params.serverId]
 });
 
 const mdp = dispatch => ({
   leaveServer: serverId => dispatch(leaveServer(serverId)),
-  fetchServers: () => dispatch(fetchServers())
+  deleteServer: serverId => dispatch(deleteServer(serverId)),
+  fetchServers: () => dispatch(fetchServers()),
+  openModal: modal => dispatch(openModal(modal))
 });
 
 export default withRouter(connect(msp, mdp)(MenuHeaderDropdown));

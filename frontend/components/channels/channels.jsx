@@ -7,7 +7,7 @@ export default class Channels extends React.Component {
   render() {
     return (
       <div className='channels-container'>
-        <div className='channels-nav-container'>
+        <div className='channels-servers-nav-container'>
           <ServersNav />
         </div>
 

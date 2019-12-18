@@ -1,10 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { openModal, closeModal } from '../../../actions/modal_actions';
-import { createServer, clearServerErrors } from '../../../actions/server_actions';
-import { withRouter } from 'react-router-dom';
 
-class ServerForm extends React.Component {
+export default class ServerForm extends React.Component {
   constructor(props) {
     super(props);
     this.state =
@@ -43,7 +39,15 @@ class ServerForm extends React.Component {
   }
 
   render() {
-    const { openModal } = this.props;
+    const { openModal, formType } = this.props;
+
+    const serverFormTitle = formType === 'Create' ?
+      <header className='create-server-title'>
+        <p>Create your server</p>
+      </header> :
+      <header className='create-server-title'>
+        <p>Edit your server</p>
+      </header>
 
     const createServerHeader = this.props.errors.length ?
       <section>
@@ -54,11 +58,21 @@ class ServerForm extends React.Component {
         <p>Server name</p>  
       </div>
 
+    const serverFormButtons = formType === 'Create' ?
+      <>
+        <div onClick={() => openModal('add_server')} className='create-server-back'>
+          <i className="fas fa-arrow-left create-server-icon"></i>
+          Back</div>
+        <div onClick={this.handleSubmit} className='create-server-button'>Create</div>
+      </> :
+      <div onClick={this.handleSubmit} className='create-server-button'>Edit</div>
+
+
+
+      
     return(
       <div className='add-server-container'>
-        <header className='create-server-title'>
-          <p>Create your server</p>
-        </header>
+        {serverFormTitle}
 
         <header className='create-server-blurb'>
           By creating the spot, you run the game.
@@ -88,33 +102,10 @@ class ServerForm extends React.Component {
 
         <div className='create-server-footer-container'>
           <div className='create-server-footer'>
-            <div onClick={() => openModal('add_server')} className='create-server-back'>
-              <i className="fas fa-arrow-left create-server-icon"></i>
-              Back</div>
-            <div onClick={this.handleSubmit} className='create-server-button'>Create</div>
+            {serverFormButtons}
           </div>
         </div>
       </div>
     );
   }
 }
-
-const msp = (state) => ({
-  formType: 'Create',
-  server: {
-    name: ''
-  },
-  serverPreview: {
-    preview: ''
-  },
-  errors: state.errors.server
-});
-
-const mdp = dispatch => ({
-  openModal: modal => dispatch(openModal(modal)),
-  closeModal: () => dispatch(closeModal()),
-  submitRequest: server => dispatch(createServer(server)),
-  clearServerErrors: () => dispatch(clearServerErrors())
-});
-
-export default withRouter(connect(msp, mdp)(ServerForm));

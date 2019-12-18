@@ -1,11 +1,10 @@
 1. make usernames not unique
 2. add custom errors especially for login instead of just 'invalid credentails'
 3. add splash art on splash home
-4. remove csrf authneticity token skipper in application_controller
-
-5. all servers?
-6. change users slice based on friends
-7. dependent destroy
+7. dependent destroy on messages
+8. take out the window getstate junk
+8. add invite code model for channels
+9. add dropdown menu for channels to edit delete
 
 // loading phrases
 checking bags...

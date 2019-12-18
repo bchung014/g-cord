@@ -1,20 +1,29 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const ServersNavItem = ({ server }) => {
-  return(
-    <Link to={`/channels/${server.id}`}>  
-      <li className='channels-nav-icon'>
-        {/* change this to conditonally check for 2 letters? and server avatar */}
-        {server.name[0]}
+  let sanitizedServerName;
 
-        {/* for server hover tags */}
-        {/* <div className='channels-nav-tag-holder'>
-          <span className='channels-nav-tag'>{server.name}</span>
-        </div> */}
-      </li>
-    </Link>
+  if (server) {
+    if (server.name.length > 20) {
+      sanitizedServerName = server.name.slice(0, 21) + '...';
+    } else {
+      sanitizedServerName = server.name;
+    }
+  }
+
+  return(
+    <li className='servers-nav-item blue-icon'>
+      <NavLink
+        to={`/servers/${server.id}`}
+        className='servers-nav-link'>
+        {server.name[0]}
+      </NavLink>
+
+      <div className='arrow-left'></div>
+      <div className='servers-nav-tag'>{sanitizedServerName}</div>
+    </li>
   );
 };
 
-export default ServersNavItem
+export default ServersNavItem;

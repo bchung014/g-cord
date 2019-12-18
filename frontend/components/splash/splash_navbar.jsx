@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const SplashNavbar = ({ loggedIn }) => {
   const login = loggedIn ?
     <div>
-      <Link to='/channels/@me' className='hello'><button className='splash-navbar-login'>Open</button></Link>
+      <Link to='/servers/@me' className='hello'><button className='splash-navbar-login'>Open</button></Link>
     </div> :
     <div>
       <Link to='/login'><button className='splash-navbar-login'>Login</button></Link>

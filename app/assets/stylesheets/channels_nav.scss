@@ -1,0 +1,104 @@
+// Channels nav whole container
+.channels-text-container {
+  margin-top: 14px;
+  color: #8E9297;
+}
+
+// Channels text header container (Text channels)
+.channels-text-header {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 7px 6px;
+
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  div {
+    display: flex;
+    align-items: center;
+  }
+}
+
+// Aligns the chevron icon from the left
+.channels-text-header-title {
+  i {
+    font-size: 6px;
+    margin-right: 6.5px;
+  }
+
+  &:hover {
+    color: #DCDDDE;
+  }
+}
+
+// Aligns the add icon from the right
+.channels-text-header-button {
+  i {
+    margin-right: 14px;
+    
+    &:hover {
+      color: #DCDDDE;
+    }
+  }
+}
+
+
+
+
+
+// Channel nav ul
+.channels-nav-container {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 2px;
+}
+
+// Link is exterior container to account for padding
+.channels-nav-link {
+  width: 86%;
+  margin: 1px auto;
+  border-radius: 4px;
+  padding: 7px 12px;
+  color: #8E9297;
+  
+  &:hover {
+    background: rgb(57, 60, 67);
+  }
+}
+
+// Li is inner element
+.channels-nav-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+}
+
+// Hashtag and name container
+.channels-nav-name {
+  i {
+    font-size: 18px;
+    margin-right: 9px;
+  }
+}
+
+// Hover button container
+.channels-nav-buttons {
+  display: flex;
+  font-size: 14px;
+
+  i:first-child {
+    margin-right: 5px;
+  }
+
+  i:hover {
+    color: #DCDDDE;
+  }
+}
+
+
+

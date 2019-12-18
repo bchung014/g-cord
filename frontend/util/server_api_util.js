@@ -20,6 +20,17 @@ export const createServer = server => (
   })
 );
 
+export const editServer = server => (
+  $.ajax({
+    url: `/api/servers/${server.id}`,
+    method: 'patch',
+    data: {
+      server
+    }
+  })
+);
+
+
 export const joinServer = inviteCode => (
   $.ajax({
     url: '/api/servers/join',
@@ -37,6 +48,9 @@ export const leaveServer = serverId => (
   })
 );
 
-// add leave server
-// replace hard-coded '1' with ${server.id}
-// add delete server
+export const deleteServer = serverId => (
+  $.ajax({
+    url: `/api/servers/${serverId}`,
+    method: 'delete'
+  })
+);

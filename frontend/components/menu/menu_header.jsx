@@ -8,16 +8,17 @@ class MenuHeader extends React.Component {
     super(props);
 
     this.state = {
-      dropdownOpen: false
+      dropdownOpen: false,
+      clicked: false
     };
 
     this.toggleDropdown = this.toggleDropdown.bind(this);
   }
 
   toggleDropdown() {
-    // debugger;
     this.setState(prevState => ({
-      dropdownOpen: !prevState.dropdownOpen
+      dropdownOpen: !prevState.dropdownOpen,
+      clicked: true
     }));
   }
 
@@ -42,7 +43,7 @@ class MenuHeader extends React.Component {
     return (
       <div
         onClick={() => this.toggleDropdown()}
-        onBlur={() => this.toggleDropdown()}
+        onBlur={() => this.setState({ dropdownOpen: false })}
         tabIndex='0'
         className='menu-header'>
         {menuDropdown}
@@ -60,7 +61,7 @@ class MenuHeader extends React.Component {
 }
 
 const msp = (state, ownProps) => ({
-  server: state.entities.servers[ownProps.match.params.channelId]
+  server: state.entities.servers[ownProps.match.params.serverId]
 });
 
 const mdp = () => {

@@ -1,0 +1,99 @@
+// Channel form primary container
+.channel-form-container {
+  width: 440px;
+  // min-height: 170px;
+
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+
+  background: rgb(54,57,63);
+}
+
+// Channel form inner container holding header and input containers
+.channel-form-inner-container{
+  padding-bottom: 2.5rem;
+  padding: 20px;
+}
+
+// Channel form header
+.channel-form-header {
+  text-transform: uppercase;
+  font-weight: 700;
+
+  margin-bottom: 20px;
+}
+
+// Channel form input container
+.channel-form-input-container {
+  // Channel name
+  p {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: rgb(142,146,151);
+    margin-bottom: 10px;
+  }
+
+  // Channel form (input container)
+  form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  input {
+    width: 93.5%;
+    background: rgb(47,49,54);
+    color: rgb(220,221,222);
+    border: 1px solid rgb(34,36,40);
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 16px;
+
+    &:focus {
+      outline: none;
+      border: 1px solid rgb(111,136,216);
+    }
+  }
+}
+
+// Channel form footer container
+.channel-form-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  
+  background: rgb(47,49,54);
+  font-size: 12px;
+  font-weight: 700;
+
+  button {
+    cursor: pointer;
+  }
+}
+
+.channel-form-cancel {
+  height: 0%;
+  color: white;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.channel-form-create {
+  padding: 8px 12px;
+  margin: 16px;
+  margin-left: 22px;
+
+  background: rgb(111,136,216);
+  border-radius: 3px;
+  color: white;
+
+  &:hover {
+    background: #677BC4; 
+  }
+}

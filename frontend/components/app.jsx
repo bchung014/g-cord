@@ -9,13 +9,13 @@ import ModalContainer from './modal/modal_container';
 
 const App = () => (
   <div>
-    <ModalContainer />
+    <Route path='/servers/:serverId' component={ModalContainer} />
 
     <Switch>
       <Route exact path='/' component={SplashContainer} />
       <AuthRoute exact path='/register' component={RegisterFormContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <ProtectedRoute path='/channels/:channelId' component={ChannelsContainer} /> 
+      <ProtectedRoute path='/servers/:serverId' component={ChannelsContainer} /> 
     </Switch>
   </div>
   

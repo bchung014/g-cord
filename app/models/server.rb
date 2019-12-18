@@ -17,14 +17,17 @@ class Server < ApplicationRecord
 
   has_many :channels, dependent: :destroy
 
-  has_many :server_memberships
+  has_many :server_memberships, dependent: :destroy
+
   has_many :members,
     through: :server_memberships,
     source: :user
+
   belongs_to :admin,
     class_name: :User,
     primary_key: :id,
     foreign_key: :admin_id
+    
 
   def self.generate_invite_code
     SecureRandom.urlsafe_base64(4)

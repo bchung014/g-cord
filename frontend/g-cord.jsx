@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   let store;
   
+  // Bootstrap current user
   if (window.currentUser) {
     const preloadedState = {
       entities: {
@@ -22,13 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-
-  // REMOVE: testing only
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  window.register = register;
-  window.login = login;
-  window.logout = logout;
 
   ReactDOM.render(<Root store={store}/>, root);
 });

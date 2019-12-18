@@ -16,7 +16,7 @@ class User < ApplicationRecord
   attr_reader :password
 
   validates :email, :username, :password_digest, :session_token, presence: true
-  validates :email, :username, :session_token, uniqueness: true
+  validates :email, :session_token, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 
   # Ensures session token is appended to user
@@ -25,15 +25,22 @@ class User < ApplicationRecord
   has_many :messages,
     class_name: :Message,
     primary_key: :id,
-    foreign_key: :author_id
-  has_many :server_memberships
+    foreign_key: :author_id,
+    dependent: :destroy
+
+  has_many :server_memberships,
+    dependent: :destroy
+
   has_many :servers,
     through: :server_memberships,
     source: :server
+
   has_many :admined_servers,
     class_name: :Server,
     primary_key: :id,
-    foreign_key: :admin_id
+    foreign_key: :admin_id,
+    dependent: :destroy
+
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

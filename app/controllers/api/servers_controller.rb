@@ -44,7 +44,7 @@ class Api::ServersController < ApplicationController
     @server = current_user.admined_servers.find_by(id: params[:id])
 
     if @server
-      @server.delete
+      @server.destroy
       render :show
     else
       render json: ['Unable to delete server'], status: 400

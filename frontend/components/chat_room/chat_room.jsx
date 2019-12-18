@@ -24,11 +24,13 @@ class ChatRoom extends React.Component {
     );
   }
 
-  // componentDidUpdate() {
-  //   this.bottom.current.scrollIntoView();
-  // }
+  componentDidUpdate() {
+    this.bottom.current.scrollIntoView();
+  }
 
   render() {
+    console.log("CHATROOM");
+
     const messageList = this.state.messages.map((message, idx) => {
       return (
         <li key={idx}>

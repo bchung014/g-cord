@@ -22,7 +22,10 @@ class User < ApplicationRecord
   # Ensures session token is appended to user
   after_initialize :ensure_session_token
 
-  has_many :messages, dependent: :destroy
+  has_many :messages,
+    class_name: :Message,
+    primary_key: :id,
+    foreign_key: :author_id
   has_many :server_memberships
   has_many :servers,
     through: :server_memberships,

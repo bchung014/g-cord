@@ -10,10 +10,9 @@ class Invite extends React.Component {
     return(
       <div className='invite-container'>
         <header className='invite-header'>
-          Invite friends to {server.name}
+          Invite the gang to {server.name}
         </header>
-
-
+        
         <input
           autoFocus
           className='invite-input' 

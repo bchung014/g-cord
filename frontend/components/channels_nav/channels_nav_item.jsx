@@ -22,7 +22,7 @@ class ChannelsNavItem extends React.Component {
         <li className='channels-nav-item'>
           <div className='channels-nav-name'>
             <i className="fas fa-hashtag"></i>
-            {sanitizedChannelName}
+            <p>{sanitizedChannelName}</p>
           </div>
           <div className='channels-nav-buttons'>
             <i

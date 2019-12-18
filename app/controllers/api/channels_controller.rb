@@ -1,7 +1,6 @@
 class Api::ChannelsController < ApplicationController
   # Retrieves all channels for a particular server
   def index
-    # debugger;
     curr_server = current_user.servers.find_by(id: params[:server_id])
     @channels = curr_server.channels
   end

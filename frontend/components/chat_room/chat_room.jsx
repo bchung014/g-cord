@@ -9,6 +9,7 @@ class ChatRoom extends React.Component {
   }
 
   componentDidMount() {
+    debugger;
     App.cable.subscriptions.create(
       { channel: "ChatChannel" },
       {

@@ -28,14 +28,33 @@ class Api::ChannelsController < ApplicationController
     end
   end
   
-  def update
-    # curr_server = Server.find_by(id: params[:id])
-    # @channel = curr_server.find_by()
+  def update 
+    curr_server = Server.find_by(id: params[:server_id])
+    @channel = curr_server.channels.find_by(id: params[:id])
 
-
+    if @channel && channel_params[:name] != @channel.name
+      if @channel.update(channel_params)
+        render :show
+      else
+        render json: @channel.errors.full_messages, status: 422
+      end
+    elsif @channel
+      render json: ['Name cannot be the same'], status: 400
+    else
+      render json: ['Channel does not exist'], status: 404
+    end
   end
 
   def destroy
+    curr_server = Server.find_by(id: params[:server_id])
+    @channel = curr_server.channels.find_by(id: params[:id])
+
+    if @channel
+      @channel.destroy
+      render :show
+    else
+      render json: ['Unable to delete server'], status: 400
+    end
   end
 
   private

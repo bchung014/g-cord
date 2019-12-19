@@ -18,6 +18,19 @@ export const createChannel = channel => (
   })
 );
 
-//edit channel
+export const editChannel = channel => (
+  $.ajax({
+    url: `/api/servers/${channel.server_id}/channels/${channel.id}`,
+    method: 'patch',
+    data: {
+      channel
+    }
+  })
+);
 
-//delete channel
+export const deleteChannel = channel => (
+  $.ajax({
+    url: `/api/servers/${channel.server_id}/channels/${channel.id}`,
+    method: 'delete'
+  })
+);

@@ -15,7 +15,7 @@ class Api::ServersController < ApplicationController
 
   def create
     @server = current_user.admined_servers.new(server_params)
-
+    
     if @server.save
       current_user.servers << @server
       render :show

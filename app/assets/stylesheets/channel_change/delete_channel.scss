@@ -1,0 +1,72 @@
+// Delete Channel main container
+.delete-channel-container {
+  width: 440px;
+
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+
+  background: rgb(54,57,63);
+}
+
+// Delete channel inner container that holds text
+.delete-channel-inner-container {
+  padding: 20px;
+  font-size: 13px;
+
+  p {
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  div {
+    color: rgb(217,218,219);
+
+    span {
+      color: rgb(111,136,216);
+      font-weight: 700;
+    }
+  }
+}
+
+// Delete channel footer that holds yes and no buttons
+.delete-channel-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: rgb(47,49,54);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  button {
+    cursor: pointer;
+  } 
+}
+
+.delete-channel-no {
+  height: 0%;
+  color: white;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.delete-channel-yes {
+  padding: 8px 12px;
+  margin: 16px;
+  margin-left: 22px;
+
+  background: #f34647;
+  border-radius: 3px;
+  color: white;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

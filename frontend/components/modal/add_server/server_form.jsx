@@ -39,7 +39,7 @@ export default class ServerForm extends React.Component {
   }
 
   render() {
-    const { openModal, formType } = this.props;
+    const { openModal, formType, errors } = this.props;
 
     const serverFormTitle = formType === 'Create' ?
       <header className='create-server-title'>
@@ -49,10 +49,10 @@ export default class ServerForm extends React.Component {
         <p>Edit your server</p>
       </header>
 
-    const createServerHeader = this.props.errors.length ?
+    const createServerHeader = errors.length ?
       <section>
-        <p>Server name&nbsp;&nbsp;</p>
-        <span>-&nbsp;&nbsp;{this.props.errors}</span>
+        <p>Server name</p>
+        <span>&nbsp;&nbsp;-&nbsp;&nbsp;{errors}</span>
       </section> :
       <div>
         <p>Server name</p>  

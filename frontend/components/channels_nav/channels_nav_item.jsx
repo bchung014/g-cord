@@ -15,7 +15,8 @@ class ChannelsNavItem extends React.Component {
     this.toggleDropdown = this.toggleDropdown.bind(this);
   }
 
-  toggleDropdown() {
+  toggleDropdown(e) {
+    e.stopPropagation();
     this.setState(prevState => ({ dropdownOpen: !prevState.dropdownOpen }));
   }
 
@@ -43,18 +44,21 @@ class ChannelsNavItem extends React.Component {
           <div className='channels-nav-buttons'>
             <div>
               <i
-                onClick={() => openModal('invite')} 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  openModal('invite')
+                }}
                 className="channels-nav-icon invite-icon fas fa-sign-out-alt"></i>
             </div>
 
-            <div>
+            <div className='channels-nav-settings'>
               <i
                 className="channels-nav-icon fas fa-cog"
-                onClick={() => this.toggleDropdown()}
+                onClick={(e) => this.toggleDropdown(e)}
                 onBlur={() => this.setState({ dropdownOpen: false })}
                 tabIndex='0'>
+                {itemDropdown}
               </i>
-              {itemDropdown}
             </div>
           </div>
         </li>

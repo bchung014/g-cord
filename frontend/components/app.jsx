@@ -9,7 +9,10 @@ import ModalContainer from './modal/modal_container';
 
 const App = () => (
   <div>
-    <Route path='/servers/:serverId' component={ModalContainer} />
+    <Switch>
+      <Route path='/servers/:serverId/channels/:channelId' component={ModalContainer} />
+      <Route path='/servers/:serverId' component={ModalContainer} />
+    </Switch>
 
     <Switch>
       <Route exact path='/' component={SplashContainer} />

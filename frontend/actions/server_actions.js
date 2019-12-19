@@ -2,6 +2,8 @@ import * as ServerAPIUtil from '../util/server_api_util';
 
 export const RECEIVE_SERVERS = 'RECEIVE_SERVERS';
 export const RECEIVE_SERVER = 'RECEIVE_SERVER';
+export const REMOVE_SERVER = 'REMOVE_SERVER';
+
 export const RECEIVE_SERVER_ERRORS = 'RECEIVE_SERVER_ERRORS';
 export const CLEAR_SERVER_ERRORS = 'CLEAR_SERVER_ERRORS';
 
@@ -12,6 +14,11 @@ const receiveServers = servers => ({
 
 const receiveServer = server => ({
   type: RECEIVE_SERVER,
+  server
+});
+
+const removeServer = server => ({
+  type: REMOVE_SERVER,
   server
 });
 
@@ -53,6 +60,14 @@ export const editServer = server => dispatch => (
     )
 );
 
+export const deleteServer = serverId => dispatch => (
+  ServerAPIUtil.deleteServer(serverId)
+    .then(
+      server => dispatch(removeServer(server)),
+      errors => dispatch(receiveServerErrors(errors.responseJSON))
+    )
+);
+
 export const joinServer = inviteCode => dispatch => (
   ServerAPIUtil.joinServer(inviteCode)
     .then(
@@ -66,13 +81,5 @@ export const leaveServer = serverId => dispatch => (
     .then(
       server => dispatch(receiveServer(server)),
       errors => dispatch(receiveServerErrors(errors.responseJSON))  
-    )
-);
-
-export const deleteServer = serverId => dispatch => (
-  ServerAPIUtil.deleteServer(serverId)
-    .then(
-      server => dispatch(receiveServer(server)),
-      errors => dispatch(receiveServerErrors(errors.responseJSON))
     )
 );

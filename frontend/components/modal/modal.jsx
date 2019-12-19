@@ -1,11 +1,12 @@
 import React from 'react';
 import AddServer from '../modal/add_server/add_server';
 import CreateServer from './add_server/create_server_container';
-import EditServer from './add_server/edit_server_container'
+import EditServer from './add_server/edit_server_container';
 import JoinServer from './add_server/join_server';
 import Invite from './invite';
 import CreateChannel from './add_channel/create_channel_container';
 import EditChannel from './add_channel/edit_channel_container';
+import DeleteChannel from './add_channel/delete_channel';
 
 const Modal = ({modal, closeModal}) => {
   if (!modal) {
@@ -35,6 +36,9 @@ const Modal = ({modal, closeModal}) => {
       break;
     case 'edit_channel':
       component = <EditChannel />
+      break;
+    case 'delete_channel':
+      component = <DeleteChannel />
       break;
     default:
       return null;

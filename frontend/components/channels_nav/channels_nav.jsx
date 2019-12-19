@@ -47,10 +47,11 @@ class ChannelsNav extends React.Component {
               Talk that 'ish
             </div>
             
-            <div
-              onClick={() => openModal('create_channel')} 
-              className='channels-text-header-button'>
-              <i className="fas fa-plus"></i>
+            <div className='channels-text-header-button'>
+              <i 
+                onClick={() => openModal('create_channel')} 
+                className="fas fa-plus">  
+              </i>
             </div>
           </header>
 

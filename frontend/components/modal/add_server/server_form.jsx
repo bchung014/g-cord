@@ -67,8 +67,6 @@ export default class ServerForm extends React.Component {
       </> :
       <div onClick={this.handleSubmit} className='create-server-button'>Edit</div>
 
-
-
       
     return(
       <div className='add-server-container'>
@@ -84,7 +82,7 @@ export default class ServerForm extends React.Component {
           <form>
             <label className='create-server-label'>
               {createServerHeader}
-              <input
+              <input  
                 className='create-server-input'
                 type="text"
                 placeholder="Enter a server name"

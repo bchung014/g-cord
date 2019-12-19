@@ -2,13 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { closeModal } from '../../../actions/modal_actions';
-import { deleteChannel, fetchChannels } from '../../../actions/channel_actions';
+import { deleteChannel } from '../../../actions/channel_actions';
 
 class DeleteChannel extends React.Component {
   deleteChannel() {
     const {
       deleteChannel,
-      fetchChannels,
       closeModal,
       channel, 
       history } = this.props;
@@ -16,7 +15,7 @@ class DeleteChannel extends React.Component {
     deleteChannel(channel)
       .then(() => {
         closeModal();
-        // history.push('@me');
+        history.push('/servers/@me');
       });
   }
 
@@ -62,8 +61,7 @@ const msp = (state, ownProps) => ({
 
 const mdp = dispatch => ({
   closeModal: () => dispatch(closeModal()),
-  deleteChannel: channel => dispatch(deleteChannel(channel)),
-  fetchChannels: serverId => dispatch(fetchChannels(serverId))
+  deleteChannel: channel => dispatch(deleteChannel(channel))
 });
 
 export default withRouter(connect(msp, mdp)(DeleteChannel));

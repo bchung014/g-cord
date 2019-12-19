@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { leaveServer, deleteServer, fetchServers } from '../../actions/server_actions';
+import { leaveServer, deleteServer } from '../../actions/server_actions';
 import { openModal } from '../../actions/modal_actions.js';
 
 class MenuHeaderDropdown extends React.Component {
@@ -15,12 +15,11 @@ class MenuHeaderDropdown extends React.Component {
   }
 
   removeServer(removeType) {
-    const { fetchServers, history } = this.props;
+    const { history } = this.props;
 
     removeType(this.state.currentServer.id)
       .then(() => {
         history.push('@me');
-        fetchServers();
       });
   }
 
@@ -89,7 +88,6 @@ const msp = (state, ownProps) => ({
 const mdp = dispatch => ({
   leaveServer: serverId => dispatch(leaveServer(serverId)),
   deleteServer: serverId => dispatch(deleteServer(serverId)),
-  fetchServers: () => dispatch(fetchServers()),
   openModal: modal => dispatch(openModal(modal))
 });
 

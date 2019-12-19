@@ -64,6 +64,10 @@
   
   &:hover {
     background: rgb(57, 60, 67);
+
+    .channels-nav-buttons {
+      display: flex;
+    }
   }
 }
 
@@ -87,7 +91,7 @@
 
 // Hover button container
 .channels-nav-buttons {
-  display: flex;
+  display: none;
   font-size: 14px;
 }
 

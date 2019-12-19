@@ -18,7 +18,11 @@ export default class Servers extends React.Component {
         </div>
         
         <div className='servers-content-container'>
+
+          {/* dont render these components for @me */}
           <ChatRoom />
+          {/* replace this with an actaul mebmers menu component */}
+          <div className='members-menu'>yer boys</div>
         </div>
       </div>
     );

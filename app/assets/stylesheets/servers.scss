@@ -24,5 +24,7 @@
 // Servers Main Content
 .servers-content-container {
   width: 100%;
+  display: flex;
+  justify-content: flex-end;
   background: #36393F;
 }

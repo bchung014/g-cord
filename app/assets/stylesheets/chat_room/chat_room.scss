@@ -1,0 +1,42 @@
+.chatroom-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+}
+
+// Chatroom header
+.chatroom-header {
+  width: 100%;
+  min-height: 48px;
+  border-bottom: 0.6px solid black;
+
+  display: flex;
+  align-items: center;
+  margin-left: 34px;
+
+  i {
+    font-size: 24px;
+    color: rgb(114, 118, 125);
+  }
+
+  p {
+    margin-left: 8px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+}
+
+// Chatroom messages container
+.chatroom-message-container {
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+}
+
+.load-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}

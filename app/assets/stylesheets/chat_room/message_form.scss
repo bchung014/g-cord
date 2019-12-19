@@ -1,0 +1,39 @@
+// Message form main container
+.message-form-container {
+  width: 100%;
+  min-height: 95px;
+}
+
+// Message form inner container for border and sizing
+.message-form-inner-container {
+  margin: auto;
+  width: 97%;
+  border-top: 1px solid rgb(66, 69, 74);
+
+  display: flex;
+  justify-content: center;
+}
+
+// Actual message form
+.message-form {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+// Message input stylings
+.message-form-input {
+  padding: 13px;
+  margin-top: 20px;
+  
+  font-size: 16px;
+  background: rgb(64, 68, 75);
+  border: none;
+  border-radius: 8px;
+  color: rgb(218, 219, 220);
+
+  &:focus {
+    outline: none;
+  }
+}

@@ -19,16 +19,20 @@ class MessageForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <input
-            type="text"
-            value={this.state.body}
-            onChange={this.update("body")}
-            placeholder="Type message here"
-          />
-          <input type="submit" />
-        </form>
+      <div className='message-form-container'>
+        <div className='message-form-inner-container'>
+          <form 
+            onSubmit={this.handleSubmit.bind(this)}
+            className='message-form'>
+            <input
+              className='message-form-input'
+              type="text"
+              value={this.state.body}
+              onChange={this.update("body")}
+              placeholder="Ai, so what had happened was..."
+            />
+          </form>
+        </div>
       </div>
     );
   }

@@ -20,25 +20,28 @@ A user must be logged in to access certain components of the application.
 Users who log in will be saved via session tokens such that their
 credentials will be preserved until they log out.
 
-* Servers *
-Users can create new servers to host channels. The user who creates a 
-given server is automatically added as a member and is deemed the
-server's admin. Admins possess certain priveleges such as editing and
-deleting the server.
+* Servers
 
-Upon creation, servers are also all given a unique invite code. This
-invite code can be given to other users such that they can join that
-server.
+    Users can create new servers to host channels. The user who creates a 
+    given server is automatically added as a member and is deemed the
+    server's admin. Admins possess certain priveleges such as editing and
+    deleting the server.
+
+    Upon creation, servers are also all given a unique invite code. This
+    invite code can be given to other users such that they can join that
+    server.
 
 * Channels
-Within each server, users can create text channels to communicate.
-Similar to servers, channels can also be created, edited, and deleted.
-Any member of that server can view all of its channels.
+
+    Within each server, users can create text channels to communicate.
+    Similar to servers, channels can also be created, edited, and deleted.
+    Any member of that server can view all of its channels.
 
 * Chat rooms
-Each channel has an associated chat room that allows for live chat between
-members of the server. This was a particularly interesting component as there
-needed to be a way to listen for new HTTP requests.
+
+    Each channel has an associated chat room that allows for live chat between
+    members of the server. This was a particularly interesting component as there
+    needed to be a way to listen for new HTTP requests.
 
 ```
   def speak(data)
@@ -48,9 +51,9 @@ needed to be a way to listen for new HTTP requests.
   end
 ```
 
-Above is a solution that was used so a user's messages could be broadcast to
-the server in realtime. This type of exchange of data was accomplished through
-Rails ActionCable.
+    Above is a solution that was used so a user's messages could be broadcast to
+    the server in realtime. This type of exchange of data was accomplished through
+    Rails ActionCable.
 
 ## Future features
 * Direct messages

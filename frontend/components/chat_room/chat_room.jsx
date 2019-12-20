@@ -1,5 +1,7 @@
 import React from "react";
 import MessageForm from "../chat_room/message_form";
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 class ChatRoom extends React.Component {
   constructor(props) {
@@ -9,7 +11,6 @@ class ChatRoom extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
     App.cable.subscriptions.create(
       { channel: "ChatChannel" },
       {
@@ -56,4 +57,11 @@ class ChatRoom extends React.Component {
   }
 }
 
-export default ChatRoom;
+const msp = (state, ownProps) => {
+  // debugger
+}
+
+const mdp = dispatch => {
+}
+
+export default withRouter(connect(msp, null)(ChatRoom));

@@ -41,7 +41,11 @@ credentials will be preserved until they log out.
 
     Each channel has an associated chat room that allows for live chat between
     members of the server. This was a particularly interesting component as there
-    needed to be a way to listen for new HTTP requests.
+    needed to be a way to listen for new HTTP requests
+    
+    Below is a solution that was used so a user's messages could be broadcast to
+    the server in realtime. This type of exchange of data was accomplished through
+    Rails ActionCable.
 
 ```
   def speak(data)
@@ -50,10 +54,6 @@ credentials will be preserved until they log out.
     ChatChannel.broadcast_to('chat_channel', socket)
   end
 ```
-
-    Above is a solution that was used so a user's messages could be broadcast to
-    the server in realtime. This type of exchange of data was accomplished through
-    Rails ActionCable.
 
 ## Future features
 * Direct messages

@@ -20,7 +20,7 @@ A user must be logged in to access certain components of the application.
 Users who log in will be saved via session tokens such that their
 credentials will be preserved until they log out.
 
-* Servers
+* Servers *
 Users can create new servers to host channels. The user who creates a 
 given server is automatically added as a member and is deemed the
 server's admin. Admins possess certain priveleges such as editing and

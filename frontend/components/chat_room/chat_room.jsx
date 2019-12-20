@@ -10,9 +10,13 @@ class ChatRoom extends React.Component {
     this.bottom = React.createRef();
   }
 
-  componentDidMount() {
+  componentDidUpdate() {
+    const { currentChannel, currentUserId } = this.props;
+
     App.cable.subscriptions.create(
-      { channel: "ChatChannel" },
+      { channel: "ChatChannel", 
+        channelId: currentChannel.id,
+        currentUserId },
       {
         received: data => {
           this.setState({
@@ -31,6 +35,11 @@ class ChatRoom extends React.Component {
   // }
 
   render() {
+    const { currentChannel } = this.props;
+    let chatRoomHeader;
+
+    if (currentChannel) chatRoomHeader = <p>{currentChannel.name}</p>
+
     const messageList = this.state.messages.map((message, idx) => {
       return (
         <li key={idx}>
@@ -44,7 +53,7 @@ class ChatRoom extends React.Component {
       <div className="chatroom-container">
         <header className='chatroom-header'>
           <i className="fas fa-hashtag"></i>
-          <p>ChatRoom Header</p>
+          {chatRoomHeader}
         </header>
 
         <div className='chatroom-message-container'>
@@ -57,9 +66,10 @@ class ChatRoom extends React.Component {
   }
 }
 
-const msp = (state, ownProps) => {
-  // debugger
-}
+const msp = (state, ownProps) => ({
+  currentUserId: state.session.currentUserId,
+  currentChannel: state.entities.channels[ownProps.match.params.channelId]
+});
 
 const mdp = dispatch => {
 }

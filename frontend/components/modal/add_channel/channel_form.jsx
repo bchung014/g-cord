@@ -24,7 +24,7 @@ export default class ChannelForm extends React.Component {
     submitRequest(this.state.channel)
       .then(({ channel }) => {
         closeModal();
-        history.push(`${channel.server_id}/channels/${channel.id}`);
+        history.push(`/servers/${channel.server_id}/channels/${channel.id}`);
       });
   }
 

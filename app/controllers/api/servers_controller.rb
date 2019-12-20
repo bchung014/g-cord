@@ -18,6 +18,7 @@ class Api::ServersController < ApplicationController
     
     if @server.save
       current_user.servers << @server
+      @server.channels.create!(name: 'The cut', server_id: @server.id)
       render :show
     else
       render json: @server.errors.full_messages, status: 422

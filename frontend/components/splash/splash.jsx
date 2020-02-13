@@ -30,7 +30,7 @@ const Splash = ({ loggedIn }) => {
             get you the clout you deserve.</p>
       </header>
 
-      {buttons}
+      {buttons} 
     </div>
   );
 };

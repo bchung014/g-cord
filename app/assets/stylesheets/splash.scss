@@ -20,36 +20,87 @@
 }
 
 
+
+
+
 /* Navbar */
 .splash-navbar {
   display: flex;
-  padding: 10px;
-  width: 90%;
-  margin: auto;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+  
+  
+  width: 80%;
+  margin: auto;
   transform: translateY(10px);
+
+  // border: 1px solid red;
+}
+
+
+
+// Left Nav
+.left-nav {
+  display: flex;
+
+  align-items: center;
 }
 
 .splash-navbar-logo {
-  max-width: 120px;
-  max-height: 120px;
+  display: flex;
+  width: 150px;
+  margin-right: 1.2vw;
+}
+
+.left-navlink {
+  font-size: 14px;
+  margin-right: 1vw;
+  // padding-top: 0.46vw;
+  color: #A8A8AA;
+}
+
+
+
+// Right Nav
+.right-nav {
+  display: flex;
+  align-items: center;  
+}
+
+// For social icon
+.right-navlink {
+  display: flex;
+  margin-left: 1vw;
+  color: #A8A8AA;
+  transition: 0.2s;
+
+  &:hover {
+    color: white;
+  }
 }
 
 .splash-navbar-login {
-  font-size: 13px;
+  margin-left: 1vw;
+
   background: #26262B;
   color: #A8A8AA;
+
+  font-size: 14px;
   border: 2px solid #A8A8AA;
   border-radius: 20px;
   padding: 6px 16px;
+  
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .splash-navbar-login:hover {
   border: 2px solid white;
   color: white;
 }
+
+
+
 
 
 /* Header */

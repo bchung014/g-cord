@@ -23,29 +23,57 @@
 // Sesssion Form Container
 .session-form-container {
   background: #36393F;
-  box-sizing: border-box;
-  max-width: 480px;
-  min-width: 300px;
+  // box-sizing: border-box;
+
+  width: 480px;
+
   color: white;
   margin: auto;
+
   opacity: 0.78;
   border-radius: 5px;
+
   text-align: center;
   padding: 20px;
   transform: translateY(160px);
 
-  animation: 1s ease-out 0s 1 slideFromTop, fadein 0.5s;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,.2);
+
+
+  -webkit-animation: slideFromTop 0.5s ease-in-out; /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: slideFromTop 0.5s ease-in-out; /* Firefox < 16 */
+      -ms-animation: slideFromTop 0.5s ease-in-out; /* Internet Explorer */
+       -o-animation: slideFromTop 0.5s ease-in-out; /* Opera < 12.1 */
+          animation: slideFromTop 0.5s ease-in-out;
 }
 
 @keyframes slideFromTop {
-  0% { transform: translateY(155px); }
-  100% { transform: translateY(160px); }
+  0% { width: 490px; transform: translateY(130px); opacity: 0; }
+  80% { transform: translateY(165px); }
+  100% { width: 480px; transform: translateY(160px); opacity: 0.78; }
+}
+@-moz-keyframes slideFromTop {  /* Firefox < 16 */
+  0% { width: 490px; transform: translateY(130px); opacity: 0; }
+  80% { transform: translateY(165px); }
+  100% { width: 480px; transform: translateY(160px); opacity: 0.78; }
+}
+@-webkit-keyframes slideFromTop {  /* Safari, Chrome and Opera > 12.1 */
+  0% { width: 490px; transform: translateY(130px); opacity: 0; }
+  80% { transform: translateY(165px); }
+  100% { width: 480px; transform: translateY(160px); opacity: 0.78; }
+}
+@-ms-keyframes slideFromTop {  /* Internet Explorer */
+  0% { width: 490px; transform: translateY(130px); opacity: 0; }
+  80% { transform: translateY(165px); }
+  100% { width: 480px; transform: translateY(160px); opacity: 0.78; }
+}
+@-o-keyframes slideFromTop {  /* Opera < 12.1 */
+  0% { width: 490px; transform: translateY(130px); opacity: 0; }
+  80% { transform: translateY(165px); }
+  100% { width: 480px; transform: translateY(160px); opacity: 0.78; }
 }
 
-@keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 0.78; }
-}
+
 
 
 // Session Form Welcome Blurb

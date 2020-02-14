@@ -43,7 +43,7 @@
 .splash-navbar-logo {
   display: flex;
   width: 150px;
-  margin-right: 1.8vw;
+  margin-right: 1.4vw;
 
   // -webkit-transition: transform .35s;
   //    -moz-transition: transform .35s;
@@ -58,7 +58,7 @@
 
 .left-navlink {
   font-size: 14px;
-  margin-right: 1.4vw;
+  margin-right: 1.2vw;
   color: #A8A8AA;
 
   -webkit-transition: 0.2s;
@@ -135,7 +135,7 @@
   max-width: 850px;
 
   margin: auto;
-  margin-top: 90px;
+  transform: translateY(100px);
   text-align: center;
 }
 

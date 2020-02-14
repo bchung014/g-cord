@@ -21,28 +21,22 @@
 
 
 
-
-
 /* Navbar */
 .splash-navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   
-  
   width: 80%;
   margin: auto;
-  transform: translateY(10px);
-
-  // border: 1px solid red;
+  transform: translateY(15px);
 }
 
 
 
-// Left Nav
+/* Left Nav */
 .left-nav {
   display: flex;
-
   align-items: center;
 }
 
@@ -55,13 +49,17 @@
 .left-navlink {
   font-size: 14px;
   margin-right: 1vw;
-  // padding-top: 0.46vw;
   color: #A8A8AA;
+  transition: 0.2s;
+  
+  &:hover {
+    color: white;
+  }
 }
 
 
 
-// Right Nav
+/* Right nav */
 .right-nav {
   display: flex;
   align-items: center;  
@@ -92,66 +90,83 @@
   
   cursor: pointer;
   transition: 0.2s;
-}
 
-.splash-navbar-login:hover {
-  border: 2px solid white;
-  color: white;
+  &:hover {
+    border: 2px solid white;
+    color: white;
+  }
 }
-
 
 
 
 
 /* Header */
+
+// Header container
 .splash-header {
   display: flex;
   flex-direction: column;
-  max-width: 820px;
+  align-items: center;
+  max-width: 850px;
+
   margin: auto;
   margin-top: 90px;
   text-align: center;
 }
 
+// Header title
 .splash-header > h1 {
   font-size: 40px;
   font-weight: 700;
   color: white;
+  margin-bottom: 16px;
 }
 
+// Header blurb
 .splash-header > p {
   font-size: 16px;
   color: white;
   line-height: 22px;
+  margin-bottom: 32px;
 }
 
-.splash-header * {
-  margin-bottom: 16px;
-}
-
+// Buttons container
 .splash-buttons {
-  max-width: 590px;
-  margin: auto;
-  margin-top: 13px;
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 66%;
+
+  -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: fadein 0.5s; /* Firefox < 16 */
+      -ms-animation: fadein 0.5s; /* Internet Explorer */
+       -o-animation: fadein 0.5s; /* Opera < 12.1 */
+          animation: fadein 0.5s;
 }
 
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+@-moz-keyframes fadein { from { opacity: 0; } to   { opacity: 1; } } /* Firefox < 16 */
+@-webkit-keyframes fadein { from { opacity: 0; } to { opacity: 1; } } /* Safari, Chrome and Opera > 12.1 */
+@-ms-keyframes fadein { from { opacity: 0; } to { opacity: 1; } } /* Internet Explorer */
+@-o-keyframes fadein { from { opacity: 0; } to { opacity: 1; } } /* Opera < 12.1 */
+
+// Buttons
 .splash-buttons {
   button {
     font-size: 15px;
     width: 260px;
     height: 45px;
-    border-radius: 3px;
+    border-radius: 4px;
     cursor: pointer;
 
+    transition: transform .35s;
+
     &:hover {
-      transition: all 0.3s ease;
-      margin-top: 2px;
+      transform: translateY(2px);
     }
   }
 }
+
+@keyframes dropdown { from { margin-top: 0px; } to { margin-top: 4px; } }
 
 .splash-button-white {
   background: white;

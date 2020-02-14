@@ -9,7 +9,6 @@ const SplashNavbar = ({ loggedIn }) => {
 
 
   return (
-
     <nav className='splash-navbar'>
       <div className='left-nav'>
         <Link to='/'><img className='splash-navbar-logo' src={window.icon} /></Link>
@@ -20,16 +19,14 @@ const SplashNavbar = ({ loggedIn }) => {
       </div>
 
       <div className='right-nav'>
-        <a href="" className='right-navlink'><i className="fas fa-kiss-wink-heart"></i></a>
-        <a href="" className='right-navlink'><i className="fas fa-envelope"></i></a>
-        <a href="" className='right-navlink'><i className="fab fa-linkedin"></i></a>
-        <a href="" className='right-navlink'><i className="fab fa-github"></i></a>
-        <a href="" className='right-navlink'><i className="fab fa-angellist"></i></a>
+        <a href="https://brandonchung.dev/" className='right-navlink' target="_blank"><i className="fas fa-kiss-wink-heart"></i></a>
+        <a href="mailto:bchung014@gmail.com" className='right-navlink' target="_blank"><i className="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/bchung014/" className='right-navlink' target="_blank"><i className="fab fa-linkedin"></i></a>
+        <a href="https://github.com/bchung014" className='right-navlink' target="_blank"><i className="fab fa-github"></i></a>
+        <a href="https://angel.co/bchung014" className='right-navlink' target="_blank"><i className="fab fa-angellist"></i></a>
         {login}
       </div>
-
     </nav>
-
   );
 
 };

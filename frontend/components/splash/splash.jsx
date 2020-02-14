@@ -28,9 +28,10 @@ const Splash = ({ loggedIn }) => {
             and keyboard cyph with all the other fools from around
             the way. It's free, street-approved, and guaranteed to
             get you the clout you deserve.</p>
+
+        {buttons}  
       </header>
 
-      {buttons} 
     </div>
   );
 };

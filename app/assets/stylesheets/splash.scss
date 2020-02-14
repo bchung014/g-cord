@@ -44,13 +44,28 @@
   display: flex;
   width: 150px;
   margin-right: 1.2vw;
+
+  // -webkit-transition: transform .35s;
+  //    -moz-transition: transform .35s;
+  //     -ms-transition: transform .35s;
+  //      -o-transition: transform .35s;
+  //         transition: transform .35s;
+
+  // &:hover {
+  //   transform: scaleX(-1);
+  // }
 }
 
 .left-navlink {
   font-size: 14px;
   margin-right: 1vw;
   color: #A8A8AA;
-  transition: 0.2s;
+
+  -webkit-transition: 0.2s;
+     -moz-transition: 0.2s;
+      -ms-transition: 0.2s;
+       -o-transition: 0.2s;
+          transition: 0.2s;
   
   &:hover {
     color: white;
@@ -70,7 +85,12 @@
   display: flex;
   margin-left: 1vw;
   color: #A8A8AA;
-  transition: 0.2s;
+
+  -webkit-transition: 0.2s;
+     -moz-transition: 0.2s;
+      -ms-transition: 0.2s;
+       -o-transition: 0.2s;
+          transition: 0.2s;
 
   &:hover {
     color: white;
@@ -87,9 +107,14 @@
   border: 2px solid #A8A8AA;
   border-radius: 20px;
   padding: 6px 16px;
-  
+
   cursor: pointer;
-  transition: 0.2s;
+
+  -webkit-transition: 0.2s;
+     -moz-transition: 0.2s;
+      -ms-transition: 0.2s;
+       -o-transition: 0.2s;
+          transition: 0.2s;
 
   &:hover {
     border: 2px solid white;
@@ -126,8 +151,8 @@
 .splash-header > p {
   font-size: 16px;
   color: white;
-  line-height: 22px;
-  margin-bottom: 32px;
+  line-height: 25px;
+  margin-bottom: 28px;
 }
 
 // Buttons container
@@ -158,7 +183,11 @@
     border-radius: 4px;
     cursor: pointer;
 
-    transition: transform .35s;
+    -webkit-transition: transform .35s;
+       -moz-transition: transform .35s;
+        -ms-transition: transform .35s;
+         -o-transition: transform .35s;
+            transition: transform .35s;
 
     &:hover {
       transform: translateY(2px);
@@ -166,13 +195,13 @@
   }
 }
 
-@keyframes dropdown { from { margin-top: 0px; } to { margin-top: 4px; } }
-
+// White button
 .splash-button-white {
   background: white;
   color: black;
 }
 
+// Blue button
 .splash-button-blue {
   background: #7289DA;
   color: white;

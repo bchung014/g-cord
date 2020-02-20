@@ -6,18 +6,24 @@ import { connect } from 'react-redux';
 class ChatRoom extends React.Component {
   constructor(props) {
     super(props);
+    
+    this.subscription = null;
+    this.currentChannelId = null;
+    
     this.state = { messages: [] };
+
     this.bottom = React.createRef();
   }
 
   componentDidMount() {
-    const { currentChannelId } = this.props;
+    this.currentChannelId = this.props.newChannelId;
 
-    App.cable.subscriptions.create(
-      { 
-        channel: "ChatChannel",
-        id: currentChannelId
-      },
+    this.createNewSubscription(this.currentChannelId);
+  }
+
+  createNewSubscription(channelId) {
+    this.subscription = App.cable.subscriptions.create(
+      { channel: "ChatChannel", id: channelId },
       {
         received: data => {
           this.setState({
@@ -30,6 +36,23 @@ class ChatRoom extends React.Component {
       }
     );
   }
+
+  componentDidUpdate() {
+    // console.log(this.currentChannelId);
+    // console.log(this.props.newChannelId);
+
+    if (this.currentChannelId !== this.props.newChannelId) {
+      this.currentChannelId = this.props.newChannelId;
+
+      this.subscription.unsubscribe();
+      this.createNewSubscription(this.currentChannelId);
+    }
+  }
+
+  componentWillUnmount() {
+    this.subscription.unsubscribe();
+  }
+
 
   // componentDidUpdate() {
   //   this.bottom.current.scrollIntoView();
@@ -63,7 +86,7 @@ class ChatRoom extends React.Component {
 }
 
 const msp = (state, ownProps) => ({
-  currentChannelId: ownProps.match.params.channelId
+  newChannelId: ownProps.match.params.channelId
 });
 
 // const mdp = dispatch => {}

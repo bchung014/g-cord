@@ -1,7 +1,7 @@
 import React from "react";
 import MessageForm from "../chat_room/message_form";
-import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class ChatRoom extends React.Component {
   constructor(props) {
@@ -10,13 +10,14 @@ class ChatRoom extends React.Component {
     this.bottom = React.createRef();
   }
 
-  componentDidUpdate() {
-    const { currentChannel, currentUserId } = this.props;
+  componentDidMount() {
+    const { currentChannelId } = this.props;
 
     App.cable.subscriptions.create(
-      { channel: "ChatChannel", 
-        channelId: currentChannel.id,
-        currentUserId },
+      { 
+        channel: "ChatChannel",
+        id: currentChannelId
+      },
       {
         received: data => {
           this.setState({
@@ -35,11 +36,6 @@ class ChatRoom extends React.Component {
   // }
 
   render() {
-    const { currentChannel } = this.props;
-    let chatRoomHeader;
-
-    if (currentChannel) chatRoomHeader = <p>{currentChannel.name}</p>
-
     const messageList = this.state.messages.map((message, idx) => {
       return (
         <li key={idx}>
@@ -53,13 +49,13 @@ class ChatRoom extends React.Component {
       <div className="chatroom-container">
         <header className='chatroom-header'>
           <i className="fas fa-hashtag"></i>
-          {chatRoomHeader}
+          <p>ChatRoom Header</p>
         </header>
 
         <div className='chatroom-message-container'>
           {messageList}
         </div>
-        
+
         <MessageForm />
       </div>
     );
@@ -67,11 +63,9 @@ class ChatRoom extends React.Component {
 }
 
 const msp = (state, ownProps) => ({
-  currentUserId: state.session.currentUserId,
-  currentChannel: state.entities.channels[ownProps.match.params.channelId]
+  currentChannelId: ownProps.match.params.channelId
 });
 
-const mdp = dispatch => {
-}
+// const mdp = dispatch => {}
 
 export default withRouter(connect(msp, null)(ChatRoom));

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SplashNavbar from '../splash/splash_navbar_container';
 
 export default class SessionForm extends React.Component {
   constructor(props) {
@@ -113,6 +114,8 @@ export default class SessionForm extends React.Component {
 
     return(
       <div className='session-form-bg'>
+        <SplashNavbar />
+
         <div className='session-form-container'>
           {welcomeText}
 

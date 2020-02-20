@@ -22,7 +22,7 @@ class MessageForm extends React.Component {
     return (
       <div className='message-form-container'>
         <div className='message-form-inner-container'>
-          <form 
+          <form
             onSubmit={this.handleSubmit.bind(this)}
             className='message-form'>
             <input

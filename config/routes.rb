@@ -7,7 +7,11 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :create]
     resource :session, only: [:create, :destroy]
     resources :servers, only: [:index, :show, :create, :update, :destroy] do
-      resources :channels, only: [:index, :show, :create, :update, :destroy]
+      resources :channels, only: [:index, :show, :create, :update, :destroy] do
+        resources :messages, only: [:index]
+      end
+
+
       collection do
         post 'join'
       end

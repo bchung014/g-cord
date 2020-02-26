@@ -2,6 +2,8 @@ import { RECEIVE_MESSAGES } from '../../actions/message_actions';
 import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
 
 const messagesReducer = (state = {}, action) => {
+
+
   Object.freeze(state);
 
   switch (action.type) {

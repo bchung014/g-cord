@@ -1,5 +1,6 @@
 import React from "react";
-import MessageForm from "../chat_room/message_form";
+import MessageForm from "./message_form";
+import MessageList from './message_list';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchChannels } from '../../actions/channel_actions';
@@ -18,18 +19,9 @@ class ChatRoom extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.channels);
+    this.currentChannelId = this.props.newChannelId;
 
-    if (this.props.newChannel) {
-      this.currentChannelId = this.props.newChannel.id;
-
-      this.props.fetchMessages(this.currentChannelId);
-
-      console.log('here');
-
-
-      // this.createNewSubscription(this.currentChannelId);
-    }
+    this.createNewSubscription(this.currentChannelId);
   }
 
   createNewSubscription(channelId) {
@@ -48,18 +40,18 @@ class ChatRoom extends React.Component {
     );
   }
 
-  // componentDidUpdate() {
-  //   // If an existing subscription exists and the user changes channels within the same server,
-  //   // the current subscription will be unsubscribed and a new subscription of the new channel is made
+  componentDidUpdate() {
+    // If an existing subscription exists and the user changes channels within the same server,
+    // the current subscription will be unsubscribed and a new subscription of the new channel is made
 
-  //   if (this.subscription &&
-  //       this.currentChannelId !== this.props.newChannel.id) {
-  //     this.currentChannelId = this.props.newChannel.id;
+    if (this.subscription &&
+        this.currentChannelId !== this.props.newChannelId) {
+      this.currentChannelId = this.props.newChannelId;
 
-  //     this.subscription.unsubscribe();
-  //     this.createNewSubscription(this.currentChannelId);
-  //   }
-  // }
+      this.subscription.unsubscribe();
+      this.createNewSubscription(this.currentChannelId);
+    }
+  }
 
   // componentWillUnmount() {
   //   this.subscription.unsubscribe();
@@ -71,14 +63,20 @@ class ChatRoom extends React.Component {
   // }
 
   render() {
-    const messageList = this.state.messages.map((message, idx) => {
-      return (
-        <li key={idx}>
-          {message}
-          <div ref={this.bottom} />
-        </li>
-      );
-    });
+    // const { channels, fetchMessages } = this.props;
+
+    // if (Object.values(channels).length !== 0) {
+    //   fetchMessages(channels[this.currentChannelId]);
+    // }
+
+    // const messageList = this.state.messages.map((message, idx) => {
+    //   return (
+    //     <li key={idx}>
+    //       {message}
+    //       <div ref={this.bottom} />
+    //     </li>
+    //   );
+    // });
 
     return (
       <div className="chatroom-container">
@@ -86,30 +84,21 @@ class ChatRoom extends React.Component {
           <i className="fas fa-hashtag"></i>
           <p>ChatRoom Header</p>
         </header>
-
-        <div className='chatroom-message-container'>
-          {messageList}
-        </div>
-
+        
+        <MessageList />
         <MessageForm />
       </div>
     );
   }
 }
 
-const msp = (state, ownProps) => {
-  const channelId = ownProps.match.params.channelId;
-
-  return (
-    {
-      newChannel: state.entities.channels[channelId],
-      channels: state.entities.channels
-    }
-  );
-};
+const msp = (state, ownProps) => ({
+  newChannelId: ownProps.match.params.channelId,
+  channels: state.entities.channels
+});
 
 const mdp = dispatch => ({
   fetchMessages: channel => dispatch(fetchMessages(channel)),
-})
+});
 
 export default withRouter(connect(msp, mdp)(ChatRoom));

@@ -4,7 +4,6 @@ import MessageList from './message_list';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchChannels } from '../../actions/channel_actions';
-import { fetchMessages } from '../../actions/message_actions';
 
 class ChatRoom extends React.Component {
   constructor(props) {
@@ -28,11 +27,11 @@ class ChatRoom extends React.Component {
     this.subscription = App.cable.subscriptions.create(
       { channel: "ChatChannel", id: channelId },
       {
-        received: data => {
-          this.setState({
-            messages: this.state.messages.concat(data.message)
-          });
-        },
+        // received: data => {
+        //   this.setState({
+        //     messages: this.state.messages.concat(data.message)
+        //   });
+        // },
         speak: function (data) {
           return this.perform("speak", data);
         }
@@ -63,21 +62,6 @@ class ChatRoom extends React.Component {
   // }
 
   render() {
-    // const { channels, fetchMessages } = this.props;
-
-    // if (Object.values(channels).length !== 0) {
-    //   fetchMessages(channels[this.currentChannelId]);
-    // }
-
-    // const messageList = this.state.messages.map((message, idx) => {
-    //   return (
-    //     <li key={idx}>
-    //       {message}
-    //       <div ref={this.bottom} />
-    //     </li>
-    //   );
-    // });
-
     return (
       <div className="chatroom-container">
         <header className='chatroom-header'>
@@ -93,12 +77,10 @@ class ChatRoom extends React.Component {
 }
 
 const msp = (state, ownProps) => ({
-  newChannelId: ownProps.match.params.channelId,
-  channels: state.entities.channels
+  newChannelId: ownProps.match.params.channelId
 });
 
 const mdp = dispatch => ({
-  fetchMessages: channel => dispatch(fetchMessages(channel)),
 });
 
-export default withRouter(connect(msp, mdp)(ChatRoom));
+export default withRouter(connect(msp, null)(ChatRoom));

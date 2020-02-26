@@ -1,5 +1,5 @@
-export const fetchMessages = channel => (
+export const fetchMessages = (serverId, channelId) => (
     $.ajax({
-        url: `/api/servers/${channel.server_id}/channels/${channel.id}/messages`,
+        url: `/api/servers/${serverId}/channels/${channelId}/messages`,
     })
 );

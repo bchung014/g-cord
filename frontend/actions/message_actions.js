@@ -9,7 +9,7 @@ const receiveMessages = messages => ({
 
 // Action Thunk Creators
 
-export const fetchMessages = channel => dispatch => (
-    MessageAPIUtil.fetchMessages(channel)
+export const fetchMessages = (serverId, channelId) => dispatch => (
+    MessageAPIUtil.fetchMessages(serverId, channelId)
         .then(messages => dispatch(receiveMessages(messages)))
 );

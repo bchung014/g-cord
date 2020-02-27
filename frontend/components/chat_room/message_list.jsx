@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchMessages } from '../../actions/message_actions';
+import MessageListItem from './message_list_item';
 
 class MessageList extends React.Component {
 
@@ -31,16 +32,16 @@ class MessageList extends React.Component {
 
     const messageList = messages.map((message, idx) => {
 
+      if (channelId === message.channel_id) {
         return (
-          <li key={idx}>
-            {message.body}
-          </li>
+          <MessageListItem key={idx} message={message} />
 
           // <li key={idx}>
           //   {message}
           //   <div ref={this.bottom} />
           // </li>
         );
+      }
 
 
     });
@@ -55,8 +56,8 @@ class MessageList extends React.Component {
 }
 
 const msp = (state, ownProps) => ({
-  serverId: ownProps.match.params.serverId,
-  channelId: ownProps.match.params.channelId,
+  serverId: parseInt(ownProps.match.params.serverId),
+  channelId: parseInt(ownProps.match.params.channelId),
   messages: Object.values(state.entities.messages)
 });
 

@@ -7,8 +7,6 @@ import MessageListItem from './message_list_item';
 class MessageList extends React.Component {
 
   componentDidMount() {
-    console.log('mounted');
-
     const { fetchMessages, serverId, channelId } = this.props;
 
     fetchMessages(serverId, channelId);

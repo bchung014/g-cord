@@ -42,10 +42,6 @@ class ChatRoom extends React.Component {
   componentDidUpdate() {
     // If an existing subscription exists and the user changes channels within the same server,
     // the current subscription will be unsubscribed and a new subscription of the new channel is made
-
-    // console.log(this.currentChannelId);
-    console.log(this.props.newChannelId);
-
     if (this.subscription &&
         this.currentChannelId !== this.props.newChannelId) {
       this.currentChannelId = this.props.newChannelId;
@@ -53,6 +49,8 @@ class ChatRoom extends React.Component {
       this.subscription.unsubscribe();
       this.createNewSubscription(this.currentChannelId);
     }
+
+      //  this.bottom.current.scrollIntoView();
   }
 
   componentWillUnmount() {
@@ -61,7 +59,7 @@ class ChatRoom extends React.Component {
 
 
   // componentDidUpdate() {
-  //   this.bottom.current.scrollIntoView();
+ 
   // }
 
   render() {

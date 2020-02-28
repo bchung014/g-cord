@@ -30,9 +30,10 @@
 
 // Chatroom messages container
 .chatroom-message-container {
-  overflow-y: scroll;
   width: 100%;
   height: 100%;
+  contain: size; // helps fix the issue where the chat log would expand the div
+  overflow-y: scroll;
 }
 
 

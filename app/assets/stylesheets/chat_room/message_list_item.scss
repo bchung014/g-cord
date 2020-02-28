@@ -1,0 +1,12 @@
+// Styling for a single message item in chat rooms
+.message-item {
+
+    border: 1px solid red;
+
+    padding: 15px 10px;
+    margin: 10px 0px;
+
+    &:first-child {
+        margin: 0px;
+    }
+}

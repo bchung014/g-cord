@@ -11,10 +11,6 @@ class ChatRoom extends React.Component {
     
     this.subscription = null;
     this.currentChannelId = null;
-    
-    this.state = { messages: [] };
-
-    this.bottom = React.createRef();
   }
 
   componentDidMount() {
@@ -27,11 +23,6 @@ class ChatRoom extends React.Component {
     this.subscription = App.cable.subscriptions.create(
       { channel: "ChatChannel", id: channelId },
       {
-        // received: data => {
-        //   this.setState({
-        //     messages: this.state.messages.concat(data.message)
-        //   });
-        // },
         speak: function (data) {
           return this.perform("speak", data);
         }
@@ -49,18 +40,11 @@ class ChatRoom extends React.Component {
       this.subscription.unsubscribe();
       this.createNewSubscription(this.currentChannelId);
     }
-
-      //  this.bottom.current.scrollIntoView();
   }
 
   componentWillUnmount() {
     this.subscription.unsubscribe();
   }
-
-
-  // componentDidUpdate() {
- 
-  // }
 
   render() {
     return (
@@ -71,6 +55,7 @@ class ChatRoom extends React.Component {
         </header>
         
         <MessageList />
+        <div ref={this.bottom} />
         <MessageForm />
       </div>
     );

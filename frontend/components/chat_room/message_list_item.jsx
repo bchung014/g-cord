@@ -3,11 +3,10 @@ import { connect } from 'react-redux';
 
 class MessageListItem extends React.Component {
 
-
   render() {
     return (
       <li className='message-item'>
-        {this.props.message.body}
+        {this.props.message.body}   
       </li>
     )
   }

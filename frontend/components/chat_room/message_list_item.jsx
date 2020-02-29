@@ -3,18 +3,23 @@ import { connect } from 'react-redux';
 
 class MessageListItem extends React.Component {
 
-  render() {    
+  render() {
+    const { message, user } = this.props;
+    let username;
+
+    if (user) username = user.username;
+
     return (
       <li className='message-item'>
-        {this.props.message.author_id} -- {this.props.message.body}
+        {username} -- {message.body}
       </li>
     )
   }
 
 }
 
-// const msp = (state, ownProps) => ({
-//   messages: Object.values(state.entities.messages)
-// });
+const msp = (state, ownProps) => ({
+  user: state.entities.users[ownProps.message.author_id]
+});
 
-export default connect(null, null)(MessageListItem);
+export default connect(msp, null)(MessageListItem);

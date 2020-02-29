@@ -20,20 +20,23 @@ class MessageList extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    debugger;
-
     const { fetchMessages, serverId, channelId } = this.props;
 
     fetchMessages(serverId, channelId);
-    this.chatScroller();
+
+    this.chatScroller(prevProps);
   }
 
-  chatScroller() {
+  chatScroller(prevProps) {
+    const currChannelId = this.props.match.params.channelId;
+    const prevChannelId = prevProps.match.params.channelId;
+
     const { messages } = this.props;
 
-    if (this.numMessages !== messages.length) {
-      this.bottom.current.scrollIntoView();
-      this.numMessages = this.props.messages.length;
+    // Checks to see if the numbers of messages has changed or a channel change has occured
+    if (this.numMessages != messages.length || currChannelId != prevChannelId) {
+      this.numMessages = messages.length;
+      this.bottom.current.scrollIntoView({ behavior: 'smooth' });
     }
   }
 

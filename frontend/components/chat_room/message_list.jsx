@@ -58,7 +58,6 @@ class MessageList extends React.Component {
       </div>
     )
   }
-
 }
 
 const msp = (state, ownProps) => ({

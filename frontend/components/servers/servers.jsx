@@ -25,7 +25,7 @@ export default class Servers extends React.Component {
             render={() => 
               <>
                 <ChatRoom />
-                <div className='members-menu'>yer boys</div>
+                <div className='members-menu'>ya alrdy know whawt it is</div>
               </>
             }/>
         </div>

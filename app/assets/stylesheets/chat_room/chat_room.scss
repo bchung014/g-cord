@@ -36,10 +36,20 @@
   overflow-y: scroll;
 }
 
+// scrollbar tings
 
+// ::-webkit-scrollbar
+// {
+//   width: 12px;  /* for vertical scrollbars */
+//   height: 12px; /* for horizontal scrollbars */
+// }
 
-// .load-button {
-//   position: absolute;
-//   top: 5px;
-//   right: 5px;
+// ::-webkit-scrollbar-track
+// {
+//   background: rgba(0, 0, 0, 0.1);
+// }
+
+// ::-webkit-scrollbar-thumb
+// {
+//   background: rgba(0, 0, 0, 0.5);
 // }

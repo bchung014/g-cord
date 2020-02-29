@@ -21,3 +21,11 @@ export const logout = user => (
     data: { user }
   })
 );
+
+export const fetchServerMembers = serverId => (
+  $.ajax({
+    method: 'get',
+    url: '/api/users',
+    data: { serverId }
+  })
+);

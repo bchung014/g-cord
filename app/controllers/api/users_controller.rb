@@ -1,4 +1,8 @@
 class Api::UsersController < ApplicationController
+  def index
+    @users = Server.find(params[:serverId]).members
+  end
+
   def show
     @user = User.find_by(id: params[:id])
 

@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchChannels } from '../../actions/channel_actions';
 import { withRouter } from 'react-router-dom';
 import ChannelsNavItem from './channels_nav_item';
 import { openModal } from '../../actions/modal_actions';
+import { fetchChannels } from '../../actions/channel_actions';
+import { fetchServerMembers } from '../../actions/session_actions';
 
 class ChannelsNav extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class ChannelsNav extends React.Component {
 
   componentDidMount() {
     this.props.fetchChannels(this.state.currentServerId);
+    this.props.fetchServerMembers(this.state.currentServerId);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -24,6 +26,7 @@ class ChannelsNav extends React.Component {
     
     if (prevServerId !== currServerId) {
       this.props.fetchChannels(currServerId);
+      this.props.fetchServerMembers(currServerId);
     }
   }
 
@@ -71,7 +74,8 @@ const msp = (state, ownProps) => ({
 
 const mdp = dispatch => ({
   fetchChannels: serverId => dispatch(fetchChannels(serverId)),
-  openModal: modal => dispatch(openModal(modal))
+  openModal: modal => dispatch(openModal(modal)),
+  fetchServerMembers: serverId => dispatch(fetchServerMembers(serverId))
 });
 
 export default withRouter(connect(msp, mdp)(ChannelsNav));

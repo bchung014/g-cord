@@ -47,11 +47,16 @@ class ChatRoom extends React.Component {
   }
 
   render() {
+    const { currChannel } = this.props;
+    let channelName;
+
+    if (currChannel) channelName = currChannel.name;
+
     return (
       <div className="chatroom-container">
         <header className='chatroom-header'>
           <i className="fas fa-hashtag"></i>
-          <p>ChatRoom Header</p>
+          <p>{channelName}</p>
         </header>
         
         <MessageList />
@@ -63,10 +68,8 @@ class ChatRoom extends React.Component {
 }
 
 const msp = (state, ownProps) => ({
-  newChannelId: ownProps.match.params.channelId
-});
-
-const mdp = dispatch => ({
+  newChannelId: ownProps.match.params.channelId,
+  currChannel: state.entities.channels[ownProps.match.params.channelId]
 });
 
 export default withRouter(connect(msp, null)(ChatRoom));

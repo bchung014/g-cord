@@ -1,12 +1,61 @@
 // Styling for a single message item in chat rooms
 .message-item {
+  display: flex;
 
-    border: 1px solid red;
+  padding: 4px 10px;
+  margin: 14px 0px;
 
-    padding: 15px 10px;
-    margin: 10px 0px;
+  &:first-child {
+    margin: 0px;
+  }
 
-    &:first-child {
-        margin: 0px;
-    }
+  &:hover {
+    background: rgba(114, 137, 218, 0.2);;
+  }
+}
+
+// User avatar image for a user
+.message-avatar {
+  border: 1px solid green;
+
+  width: 38px;
+  height: 38px;
+  background: green;
+  border-radius: 32px;
+  font-size: 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-right: 10px;
+}
+
+
+// Message contents
+.message-content {
+  display: flex;
+  flex-direction: column;
+}
+
+// Header that includes username and timestamp
+.message-header {
+  display: flex;
+  align-items: baseline;
+}
+
+.message-username {
+  font-weight: 700;
+  font-size: 16px;
+  margin-right: 12px;
+  margin-bottom: 6px;
+}
+
+.message-time {
+  color: #727265;
+  font-size: 13px;
+}
+
+.message-text {
+  font-size: 15px;
 }

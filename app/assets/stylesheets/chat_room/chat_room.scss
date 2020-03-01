@@ -10,13 +10,14 @@
 .chatroom-header {
   width: 100%;
   min-height: 48px;
+
   border-bottom: 0.6px solid black;
 
   display: flex;
   align-items: center;
-  margin-left: 34px;
 
   i {
+    margin-left: 18px;
     font-size: 24px;
     color: rgb(114, 118, 125);
   }

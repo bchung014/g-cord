@@ -1,0 +1,67 @@
+.banner-container {
+  position: relative;
+  height: 15vh;
+  overflow: hidden;
+
+  background: rgba(114, 118, 125, 0.3);
+
+  display: flex;
+  justify-content: center;
+
+
+  p {
+    padding-top: 30px;
+  }
+}
+
+.banner-blurb {
+  position: absolute;
+  width: 65vh;
+  top: 4vh;
+  left: 46vh;
+  opacity: 0.3;
+}
+
+
+.banner-lilkim {
+  position: absolute;
+  width: 12vh;
+  height: 15vh;
+  left: 118vh;
+  
+  opacity: 0.7;
+
+  object-fit: cover;
+  object-position: 20% 2vh;
+
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+  filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+}
+
+.banner-biggie {
+  position: absolute;
+  width: 19vh;
+  height: 15vh;
+  left: 128vh;
+  
+  opacity: 0.75;
+
+  object-fit: cover;
+  object-position: 20% 0.5vh;
+}
+
+.banner-diddy {
+  position: absolute;
+  width: 35vh;
+  height: 15vh;
+  left: 7vh;
+  
+  opacity: 0.6;
+  object-fit: cover;
+  object-position: 20% 1vh;
+
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+  filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+}

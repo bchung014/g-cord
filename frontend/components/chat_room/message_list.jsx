@@ -53,6 +53,18 @@ class MessageList extends React.Component {
 
     return (
       <div className='chatroom-message-container'>
+        <div className='banner-container'>
+          {/* <p>
+          It was all a dream
+
+          </p> */}
+
+          <img className='banner-blurb' src={window.bannerBlurb} />
+          <img className='banner-diddy' src={window.bannerDiddy} />
+          <img className='banner-biggie' src={window.bannerBiggie} />
+          <img className='banner-lilkim' src={window.bannerLilKim} />
+
+        </div>
         {messageList}
         <div ref={this.bottom} />
       </div>
